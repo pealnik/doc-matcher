@@ -1,0 +1,26 @@
+# Environment variables
+.env
+.env.local
+
+# Virtual environment
+venv/
+env/
+*.pyc
+__pycache__/
+
+# Generated files
+guideline_vectorstore/
+# compliance_report.txt
+compliance_checker.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Report.pdf
