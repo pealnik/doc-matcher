@@ -10,6 +10,8 @@ __pycache__/
 
 # Generated files
 guideline_vectorstore/
+vectorstores/
+uploads/
 # compliance_report.txt
 compliance_checker.log
 
@@ -24,3 +26,4 @@ compliance_checker.log
 .DS_Store
 Thumbs.db
 Report.pdf
+/DOCKER_DEPLOYMENT.md

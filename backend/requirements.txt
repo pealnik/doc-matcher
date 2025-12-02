@@ -1,0 +1,33 @@
+# PDF Compliance Checker Requirements
+
+# FastAPI Backend
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
+
+# PDF processing
+pdfplumber>=0.10.0
+
+# Data manipulation
+pandas>=2.0.0
+tabulate>=0.9.0  # Required for pandas.to_markdown()
+
+# RAG components
+langchain>=0.1.0
+langchain-community>=0.0.20
+langchain-core>=0.1.0
+langchain-text-splitters>=0.0.1
+
+# Vector store
+faiss-cpu>=1.7.4  # Use faiss-gpu if you have CUDA
+
+# Embeddings (OpenAI - cloud-based, no local model)
+openai>=1.0.0
+langchain-openai>=0.0.5
+
+# LLM
+google-generativeai>=0.3.0
+
+# Utilities
+numpy>=1.24.0
+python-dotenv>=1.0.0
