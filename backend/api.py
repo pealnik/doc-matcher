@@ -21,20 +21,21 @@ from pydantic import BaseModel
 # Import from local backend module
 from pdf_compliance_checker import PDFExtractor, GuidelineRAG, ComplianceChecker
 
+# Load environment variables
+from dotenv import load_dotenv
+load_dotenv()
+
 # Initialize FastAPI app
 app = FastAPI(title="PDF Compliance Checker API")
 
-# Configure CORS
-# Add your production frontend URL to allow_origins when deploying
+# Configure CORS from environment variable
+# Set ALLOWED_ORIGINS in .env as comma-separated URLs
+allowed_origins_env = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000")
+allowed_origins = [origin.strip() for origin in allowed_origins_env.split(",")]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://localhost:3000",
-        # Add your production frontend URL here:
-        # "https://yourdomain.com",
-        # "https://www.yourdomain.com"
-    ],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -53,10 +54,6 @@ for directory in [GUIDELINES_DIR, REPORTS_DIR, VECTORSTORE_DIR]:
 # In-memory storage for tasks and guidelines
 tasks_db: Dict[str, Dict[str, Any]] = {}
 guidelines_db: Dict[str, Dict[str, Any]] = {}
-
-# Load environment variables
-from dotenv import load_dotenv
-load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
