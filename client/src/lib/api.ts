@@ -43,7 +43,7 @@ export const api = {
     const formData = new FormData();
     formData.append("file", file);
 
-    const response = await fetch(`${API_BASE_URL}/api/guidelines/upload`, {
+    const response = await fetch(`${API_BASE_URL}/guidelines/upload`, {
       method: "POST",
       body: formData,
     });
@@ -57,7 +57,7 @@ export const api = {
   },
 
   async getGuidelines(): Promise<Guideline[]> {
-    const response = await fetch(`${API_BASE_URL}/api/guidelines`);
+    const response = await fetch(`${API_BASE_URL}/guidelines`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch guidelines");
@@ -67,7 +67,7 @@ export const api = {
   },
 
   async deleteGuideline(id: string): Promise<void> {
-    const response = await fetch(`${API_BASE_URL}/api/guidelines/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/guidelines/${id}`, {
       method: "DELETE",
     });
 
@@ -82,7 +82,7 @@ export const api = {
     formData.append("report", report);
     formData.append("guideline_ids", JSON.stringify(guidelineIds));
 
-    const response = await fetch(`${API_BASE_URL}/api/match`, {
+    const response = await fetch(`${API_BASE_URL}/match`, {
       method: "POST",
       body: formData,
     });
@@ -96,7 +96,7 @@ export const api = {
   },
 
   async getTaskStatus(taskId: string): Promise<TaskStatus> {
-    const response = await fetch(`${API_BASE_URL}/api/tasks/${taskId}`);
+    const response = await fetch(`${API_BASE_URL}/tasks/${taskId}`);
 
     if (!response.ok) {
       const error = await response.json();
@@ -107,7 +107,7 @@ export const api = {
   },
 
   async getTasks(): Promise<TaskStatus[]> {
-    const response = await fetch(`${API_BASE_URL}/api/tasks`);
+    const response = await fetch(`${API_BASE_URL}/tasks`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch tasks");

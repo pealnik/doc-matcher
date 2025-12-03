@@ -19,8 +19,11 @@ interface TaskProgressProps {
 export function TaskProgress({ task }: TaskProgressProps) {
   const handleDownloadPDF = async () => {
     try {
-      const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
-      const response = await fetch(`${API_BASE_URL}/api/tasks/${task.task_id}/download`);
+      const API_BASE_URL =
+        import.meta.env.VITE_API_URL || "http://localhost:8000";
+      const response = await fetch(
+        `${API_BASE_URL}/tasks/${task.task_id}/download`
+      );
 
       if (!response.ok) {
         throw new Error("Failed to download PDF");
@@ -47,34 +50,32 @@ export function TaskProgress({ task }: TaskProgressProps) {
         <div className="flex items-center justify-between">
           <CardTitle>Task Status</CardTitle>
           <div className="flex items-center gap-2">
-            {task.status === "completed" && task.result?.rows && task.result.rows.length > 0 && (
-              <Button
-                onClick={handleDownloadPDF}
-                variant="outline"
-                size="sm"
-              >
-                <Download className="h-4 w-4 mr-2" />
-                Download PDF
-              </Button>
-            )}
+            {task.status === "completed" &&
+              task.result?.rows &&
+              task.result.rows.length > 0 && (
+                <Button onClick={handleDownloadPDF} variant="outline" size="sm">
+                  <Download className="h-4 w-4 mr-2" />
+                  Download PDF
+                </Button>
+              )}
             <Badge
-            variant={
-              task.status === "completed"
-                ? "default"
-                : task.status === "failed"
-                ? "destructive"
-                : "secondary"
-            }
-          >
-            {task.status === "pending" && <Clock className="h-3 w-3 mr-1" />}
-            {task.status === "processing" && (
-              <Clock className="h-3 w-3 mr-1 animate-spin" />
-            )}
-            {task.status === "completed" && (
-              <CheckCircle className="h-3 w-3 mr-1" />
-            )}
-            {task.status === "failed" && <XCircle className="h-3 w-3 mr-1" />}
-            {task.status}
+              variant={
+                task.status === "completed"
+                  ? "default"
+                  : task.status === "failed"
+                  ? "destructive"
+                  : "secondary"
+              }
+            >
+              {task.status === "pending" && <Clock className="h-3 w-3 mr-1" />}
+              {task.status === "processing" && (
+                <Clock className="h-3 w-3 mr-1 animate-spin" />
+              )}
+              {task.status === "completed" && (
+                <CheckCircle className="h-3 w-3 mr-1" />
+              )}
+              {task.status === "failed" && <XCircle className="h-3 w-3 mr-1" />}
+              {task.status}
             </Badge>
           </div>
         </div>

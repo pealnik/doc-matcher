@@ -39,8 +39,9 @@ app = FastAPI(title="PDF Compliance Checker API")
 
 # Configure CORS from environment variable
 # Set ALLOWED_ORIGINS in .env as comma-separated URLs
+# For production with nginx proxy, you can set to ["*"] or skip CORS since it's same-origin
 allowed_origins_env = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000")
-allowed_origins = [origin.strip() for origin in allowed_origins_env.split(",")]
+allowed_origins = [origin.strip() for origin in allowed_origins_env.split(",")] if allowed_origins_env else ["*"]
 
 app.add_middleware(
     CORSMiddleware,
