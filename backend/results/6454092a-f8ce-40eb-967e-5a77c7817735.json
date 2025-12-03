@@ -1,0 +1,69 @@
+{
+  "task_id": "6454092a-f8ce-40eb-967e-5a77c7817735",
+  "report_filename": "IHM(1-3).pdf",
+  "guideline_id": "c7fd36b8-da28-4dda-a3fb-ad213226515c",
+  "guideline_filename": "c7fd36b8-da28-4dda-a3fb-ad213226515c.pdf",
+  "generated_at": "2025-12-03T23:17:46.163984",
+  "completed_at": "2025-12-03T23:17:46.163988",
+  "status": "completed",
+  "compliance_check": {
+    "rows": [
+      {
+        "mepc_reference": "MEPC.379(80) Page 44, Particulars of the 'Sample Ship'",
+        "ihm_output": "Page 1 contains Name, IMO No., Preparer/Owner. Missing: Port of registry, Type of vessel, Gross tonnage, Name of shipbuilder, Date of delivery.",
+        "status": "Non-Compliant",
+        "remarks": "The essential particulars required for the identification block of the IHM (such as GT, Port of registry, Builder, and Date of delivery) are missing from the front page summary.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 44, Attachment 3: Location diagram of hazardous materials",
+        "ihm_output": "The Table of Contents lists 'Step-2 Assessment of collected information' (P29) and 'Location of samples collected on-board' (P30) and 'Step-3 Final Visual Sampling and Check Plan (VSCP)' (P45), but not the explicitly required Attachment 3 Location Diagram.",
+        "status": "Non-Compliant",
+        "remarks": "While sampling location data is listed, the mandatory 'Attachment 3: Location diagram of hazardous materials' is not explicitly listed or referenced under its required title/function in the primary attachments list (Page 44 mandate).",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 17 & 19, Standard Format (Part I, II, III)",
+        "ihm_output": "Page 2/3 lists: Part-II (P9), Part-III (P10), and Step-5 Preparation of Part 1 (P96).",
+        "status": "Compliant",
+        "remarks": "The report structure confirms the inclusion and location of all three mandatory parts (I, II, and III) of the Inventory.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 12, Appendix 4: Flow diagram for developing Part I for existing ships",
+        "ihm_output": "Page 2 lists Appendix – 4 as 'IHM Expert Company Certificate' (P172).",
+        "status": "Non-Compliant",
+        "remarks": "The report appendix numbering is non-standard and replaces the required reference to the Appendix 4 Flow Diagram (relevant for existing ships methodology, see MEPC Page 29/Appendix 4 title) with a certificate document.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 12, Appendix 1: Items to be listed in the Inventory of Hazardous Materials (Table A & B)",
+        "ihm_output": "Page 2 lists Appendix – 1, containing Table A, Table B, Table C, and Table D (P101-105).",
+        "status": "Compliant",
+        "remarks": "All necessary material lists (Table A and B) are explicitly included within the documentation, along with supplemental lists (C and D).",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 12, Appendix 6 (MD) and Appendix 7 (SDoC)",
+        "ihm_output": "Page 2 lists Appendix – 9 Material Declaration (MD) (P197) and Appendix – 10 Supplier's Declaration of Conformity (SDoC) (P198).",
+        "status": "Compliant",
+        "remarks": "While the appendix numbering is shifted, the mandatory Material Declarations (MD) and Supplier's Declarations of Conformity (SDoC) are confirmed as included in the report.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      }
+    ],
+    "summary": {
+      "total_rows": 6,
+      "total_compliant": 3,
+      "total_non_compliant": 3,
+      "total_partial": 0,
+      "total_chunks": 1,
+      "total_pages": 3
+    }
+  }
+}

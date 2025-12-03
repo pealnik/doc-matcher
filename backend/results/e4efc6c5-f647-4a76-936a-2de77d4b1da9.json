@@ -1,0 +1,69 @@
+{
+  "task_id": "e4efc6c5-f647-4a76-936a-2de77d4b1da9",
+  "report_filename": "IHM(1-3).pdf",
+  "guideline_id": "c7fd36b8-da28-4dda-a3fb-ad213226515c",
+  "guideline_filename": "c7fd36b8-da28-4dda-a3fb-ad213226515c.pdf",
+  "generated_at": "2025-12-03T23:14:15.990527",
+  "completed_at": "2025-12-03T23:14:15.990532",
+  "status": "completed",
+  "compliance_check": {
+    "rows": [
+      {
+        "mepc_reference": "MEPC.379(80) Page 44 - Example of Particulars",
+        "ihm_output": "Page 1 lists: Name (MV GREAT ROYAL), IMO (9083081). Missing: Type of vessel, Gross tonnage, Port of registry, Date of delivery.",
+        "status": "Non-Compliant",
+        "remarks": "The initial particulars section on the front page (Page 1) is incomplete compared to the required minimum information provided in the MEPC example for identification purposes.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 44 - Required Attachments (Inventory Development Steps)",
+        "ihm_output": "TOC lists: Step-1 (Collection, Page 24), Step-2 (Assessment, Page 29), Step-3 (Final VSCP, Page 45), Step-5 (Preparation of Part 1, Page 96).",
+        "status": "Compliant",
+        "remarks": "The report structure follows the logical development steps (Collection, Assessment/VSCP, Preparation) required for developing the Inventory for existing ships, corresponding to the required attachments.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Appendix 2 (Pages 17, 19) - Standard Format Structure (Parts I, II, III)",
+        "ihm_output": "Part-II (Page 9), Part-III (Page 10) including III-1, III-2, III-3, III-4 (Pages 10-12). Part 1 preparation (Page 96).",
+        "status": "Compliant",
+        "remarks": "The report structure correctly identifies and separates Parts I, II, and III, including the mandated subdivisions for Part III (stores, liquids, gases, consumables).",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Appendix 1 - Items to be Listed (Table A and Table B)",
+        "ihm_output": "Appendix 1 includes Table A (Page 101), Table B (Page 102), Table C (Page 103), and Table D (Page 105).",
+        "status": "Compliant",
+        "remarks": "All required tables (A and B) and the recommended supplementary tables (C and D) are included and correctly referenced in the appendices list.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Appendix 6 (Form of Material Declaration)",
+        "ihm_output": "Appendix – 9 Material Declaration (MD) (Page 197).",
+        "status": "Compliant",
+        "remarks": "The MD form is included as an appendix, fulfilling the documentation requirement, despite the internal numbering change.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Appendix 7 (Form of Supplier's Declaration of Conformity)",
+        "ihm_output": "Appendix – 10 Supplier's Declaration of Conformity (SDoC) (Page 198).",
+        "status": "Compliant",
+        "remarks": "The SDoC form is included as an appendix, fulfilling the documentation requirement, despite the internal numbering change.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 3
+      }
+    ],
+    "summary": {
+      "total_rows": 6,
+      "total_compliant": 5,
+      "total_non_compliant": 1,
+      "total_partial": 0,
+      "total_chunks": 1,
+      "total_pages": 3
+    }
+  }
+}

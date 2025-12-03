@@ -9,25 +9,27 @@ export interface Guideline {
   vectorstore_ready?: boolean;
 }
 
+export interface ComplianceRow {
+  mepc_reference: string;
+  ihm_output: string;
+  status: "Compliant" | "Non-Compliant" | "Partially Compliant";
+  remarks: string;
+  chunk_start_page: number;
+  chunk_end_page: number;
+}
+
 export interface TaskStatus {
   task_id: string;
   status: "pending" | "processing" | "completed" | "failed";
   progress: number;
   message: string;
   result?: {
-    chunks: Array<{
-      start_page: number;
-      end_page: number;
-      compliance: string;
-      issues: Array<{
-        page: number;
-        description: string;
-        guideline_ref: string;
-        reasoning: string;
-      }>;
-    }>;
+    rows: ComplianceRow[];
     summary: {
-      total_issues: number;
+      total_rows: number;
+      total_compliant: number;
+      total_non_compliant: number;
+      total_partial: number;
       total_chunks: number;
       total_pages: number;
     };

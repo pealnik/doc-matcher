@@ -1,0 +1,108 @@
+{
+  "task_id": "08763f65-7b91-4cd2-aa8d-e583eb023dc8",
+  "report_filename": "IHM(1-10).pdf",
+  "guideline_id": "c7fd36b8-da28-4dda-a3fb-ad213226515c",
+  "guideline_filename": "c7fd36b8-da28-4dda-a3fb-ad213226515c.pdf",
+  "generated_at": "2025-12-03T22:47:59.926191",
+  "status": "processing",
+  "compliance_check": {
+    "rows": [
+      {
+        "mepc_reference": "MEPC.379(80) Page 44, Particulars",
+        "ihm_output": "Page 1 lists Name (MV GREAT ROYAL) and IMO Number (9083081), Document No (HRSM/VML/158), Report Date (22-07-2025).",
+        "status": "Non-Compliant",
+        "remarks": "Mandatory particulars required by the IHM front matter example (Page 44) are missing, including: Distinctive number/letters, Port of registry, Type of vessel, Gross tonnage, Name of shipbuilder, Name of shipowner (explicitly listed as owner/preparer separated), and Date of delivery.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 44, Required Attachments (specifically Attachment 3)",
+        "ihm_output": "The Table of Contents (Pages 2-3) lists Appendix 2 (Lab Test Reports), Appendix 9 (MD), Appendix 10 (SDoC), and Step 2 (Assessment of collected information, Page 29).",
+        "status": "Non-Compliant",
+        "remarks": "The required Attachment 3: 'Location diagram of hazardous materials' (MEPC Page 44) is not explicitly listed or titled as an appendix or step in the Table of Contents, indicating a missing structural element.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 6, 4.1.4 (Documentation basis)",
+        "ihm_output": "ToC lists: Appendix – 9 Material Declaration (MD) (Page 197) and Appendix – 10 Supplier's Declaration of Conformity (SDoC) (Page 198).",
+        "status": "Compliant",
+        "remarks": "The report structure indicates that Material Declarations and Supplier's Declarations of Conformity, required as the basis for material checking (paragraph 4.1.4), are included in the appendices.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 17, Standard Format Part I",
+        "ihm_output": "ToC lists: Step-5 Preparation of Part 1 of HazMat Inventory in structure & equipment (Page 96).",
+        "status": "Compliant",
+        "remarks": "The report structure includes a dedicated section for the preparation and listing of Part I materials.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 19, Standard Format Part II",
+        "ihm_output": "ToC lists: Part-II List of potentially generated waste/potentially hazardous waste on-board (Page 9).",
+        "status": "Compliant",
+        "remarks": "The report structure includes a dedicated section for Part II (Operationally generated waste).",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 6, 4.1.3 & Part III Structure",
+        "ihm_output": "ToC lists: Part-III Potentially containing hazardous material in stores (Page 10), broken down into III-1 Stores, III-2 Liquids, III-3 Gases, III-4 Regular consumable goods.",
+        "status": "Compliant",
+        "remarks": "The report structure correctly identifies and subdivides Part III, covering spare parts and consumable items as required.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 45, I-2 Structure (Required Fields)",
+        "ihm_output": "I-2 tables on Page 7 and 8 list all required fields: SL. NO., Name of equipment, Location, Materials (classification), Parts where used, Approximate quantity, and Remarks.",
+        "status": "Compliant",
+        "remarks": "All mandatory columns for I-2 (Equipment and machinery) are present and populated.",
+        "chunk_start_page": 5,
+        "chunk_end_page": 8
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 45, I-1 Structure (Paints and coatings)",
+        "ihm_output": "I-1 table is present on Page 7 but all fields are listed as N/A (No. N/A, Application N/A, Name of paint N/A, etc.).",
+        "status": "Partially Compliant",
+        "remarks": "The required table structure is present, fulfilling the structural requirement. N/A is used, implying no hazardous coatings were found (or found above threshold).",
+        "chunk_start_page": 5,
+        "chunk_end_page": 8
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 45, footnote *1 (Location Ordering)",
+        "ihm_output": "Items 1-16 are not ordered strictly from lower level to upper level. Examples: Item 15 (E/R 3rd Deck) is listed after Item 10 (E/R 2ND Deck) and before Item 16 (E/R 2ND Deck). Item 7 (Upper Deck) is listed after Item 5 & 6 (A Deck).",
+        "status": "Non-Compliant",
+        "remarks": "The IHM violates the mandatory requirement that items must be entered in order based on location, from a lower level to an upper level.",
+        "chunk_start_page": 5,
+        "chunk_end_page": 8
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 45, Approximate quantity",
+        "ihm_output": "Quantities are reported using mixed units (kg, gm, pcs). Items 10, 12, and 15 use 'gm' (800 gm, 700 gm, 600 gm), while most other items use 'kg' or 'pcs' (e.g., 2.5 kg, 41 pcs).",
+        "status": "Compliant",
+        "remarks": "While 'kg' is standard in MEPC examples, 'gm' is a valid unit of mass and fulfills the requirement for reporting 'Approximate quantity'. 'Pcs' is acceptable for countable items (detectors, lamps).",
+        "chunk_start_page": 5,
+        "chunk_end_page": 8
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 45, I-2 Location Specificity",
+        "ihm_output": "Locations are highly specific, including 'Navigation Bridge Deck Battery Room', 'E/R 2ND Deck (ECR)', and 'Upper Deck Ref. Machine Room'.",
+        "status": "Compliant",
+        "remarks": "The report provides detailed compartment or room-level locations, exceeding the general deck designation shown in some MEPC examples.",
+        "chunk_start_page": 5,
+        "chunk_end_page": 8
+      }
+    ],
+    "summary": {
+      "total_rows": 11,
+      "total_compliant": 7,
+      "total_non_compliant": 3,
+      "total_partial": 1,
+      "total_chunks": 2,
+      "total_pages": 10
+    }
+  }
+}

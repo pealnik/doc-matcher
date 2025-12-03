@@ -42,7 +42,7 @@ GEMINI_API_KEY=your_gemini_key_here
 **Update CORS in `api.py`** - Add your Vercel URL:
 
 ```python
-allow_origins=[
+allow_origins=
     "http://localhost:5173",
     "http://localhost:3000",
     "https://your-app.vercel.app",  # ← Add your Vercel URL

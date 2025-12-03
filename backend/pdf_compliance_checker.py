@@ -278,7 +278,7 @@ class ComplianceChecker:
             chunk_end_page: Ending page number of chunk
 
         Returns:
-            Parsed compliance result as dict
+            Parsed compliance result as dict with rows format
         """
         # Construct prompt with page numbers
         guideline_sections = []
@@ -289,43 +289,73 @@ class ComplianceChecker:
 
         guideline_text = "\n\n---\n\n".join(guideline_sections)
 
-        prompt = f"""You are a compliance auditor reviewing a report against guidelines.
+        prompt = f"""You are a compliance auditor reviewing an IHM (Inventory of Hazardous Materials) report against MEPC guidelines.
 
-**Guidelines Context (relevant sections with page numbers):**
+**Guidelines Context (relevant MEPC sections with page numbers):**
 {guideline_text}
 
 **Report Chunk (Pages {chunk_start_page}-{chunk_end_page}):**
 {report_chunk}
 
 **Task:**
-Carefully analyze the report chunk for compliance with the guidelines. Check for:
-- Values that exceed specified limits or thresholds
-- Missing required tables, sections, or data
-- Violations of rules or requirements
-- Inconsistencies with guideline specifications
+Carefully analyze the report chunk for compliance with MEPC requirements. For EACH relevant MEPC requirement found in the guidelines, create a row checking if the report meets it.
 
-**IMPORTANT:** When citing guideline references, ALWAYS include the specific guideline page number in the format "Page X: description" or "Guideline Page X, Section Y".
+Check for:
+- Required tables (Table A, B, C) and their completeness
+- Missing required fields (quantity, location, frame/deck, etc.)
+- Values that exceed thresholds
+- Specific location requirements vs vague descriptions
+- Documentation completeness
 
-**Output Format:**
+**IMPORTANT Output Format:**
 Respond with ONLY a valid JSON object (no markdown code blocks) in this exact format:
 {{
-    "compliance": "compliant" or "non-compliant" or "partial",
-    "issues": [
+    "rows": [
         {{
-            "page": <report page number as integer>,
-            "description": "<brief description of issue>",
-            "guideline_ref": "Page X: <specific section/table/requirement>",
-            "reasoning": "<detailed explanation referencing specific guideline page>"
+            "mepc_reference": "<MEPC page number, specific clause/table/section from guideline>",
+            "ihm_output": "<exact text from report pages {chunk_start_page}-{chunk_end_page}, OR explain what is present/missing with page number>",
+            "status": "Compliant" or "Non-Compliant" or "Partially Compliant",
+            "remarks": "<short explanation of why compliant/non-compliant>"
         }}
     ]
 }}
 
-If compliant, return an empty issues array [].
+**Examples:**
+- mepc_reference: "MEPC.379 Page 15, Table A - Asbestos"
+- ihm_output: "Page {chunk_start_page}: Asbestos listed but quantity field empty"
+- status: "Non-Compliant"
+- remarks: "Quantity is mandatory under Table A requirements"
+
+OR
+
+- mepc_reference: "MEPC.379 Page 18, Section 4.2.2 - Location specificity"
+- ihm_output: "Page {chunk_start_page}: Location stated as 'various locations'"
+- status: "Non-Compliant"
+- remarks: "MEPC requires specific frame/deck/compartment designation"
+
+If fully compliant with all checked requirements, return one row with status "Compliant" and remarks "No issues found".
 """
 
         try:
             # Call Gemini API
             response = self.model.generate_content(prompt)
+
+            # Check if response was blocked by safety filters
+            if not response.parts:
+                # Handle safety block or empty response
+                logger.warning(f"Gemini response blocked or empty for pages {chunk_start_page}-{chunk_end_page}")
+                logger.warning(f"Finish reason: {response.candidates[0].finish_reason if response.candidates else 'Unknown'}")
+
+                # Return a row indicating the issue
+                return {
+                    "rows": [{
+                        "mepc_reference": "Processing Issue",
+                        "ihm_output": f"Pages {chunk_start_page}-{chunk_end_page}: Content could not be analyzed (possibly blocked by safety filters or too long)",
+                        "status": "Partially Compliant",
+                        "remarks": "Unable to complete analysis for this section. Please review manually or try processing in smaller chunks."
+                    }]
+                }
+
             response_text = response.text.strip()
 
             # Remove markdown code blocks if present
@@ -340,36 +370,32 @@ If compliant, return an empty issues array [].
             # Parse JSON response
             result = json.loads(response_text)
 
-            # Validate response structure
-            if "compliance" not in result:
-                result["compliance"] = "partial"
-            if "issues" not in result:
-                result["issues"] = []
+            # Validate response structure - new format with rows
+            if "rows" not in result:
+                result["rows"] = []
 
             return result
 
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse Gemini response as JSON: {e}")
             logger.error(f"Response text: {response_text}")
-            # Return fallback result
+            # Return fallback result in new format
             return {
-                "compliance": "partial",
-                "issues": [{
-                    "page": chunk_start_page,
-                    "description": "Error parsing compliance check response",
-                    "guideline_ref": "N/A",
-                    "reasoning": f"JSON parsing error: {str(e)}"
+                "rows": [{
+                    "mepc_reference": "N/A",
+                    "ihm_output": f"Error parsing compliance check response for pages {chunk_start_page}-{chunk_end_page}",
+                    "status": "Non-Compliant",
+                    "remarks": f"JSON parsing error: {str(e)}"
                 }]
             }
         except Exception as e:
             logger.error(f"Error during compliance check: {e}")
             return {
-                "compliance": "partial",
-                "issues": [{
-                    "page": chunk_start_page,
-                    "description": "Error during compliance analysis",
-                    "guideline_ref": "N/A",
-                    "reasoning": f"API error: {str(e)}"
+                "rows": [{
+                    "mepc_reference": "N/A",
+                    "ihm_output": f"Error during compliance analysis for pages {chunk_start_page}-{chunk_end_page}",
+                    "status": "Non-Compliant",
+                    "remarks": f"API error: {str(e)}"
                 }]
             }
 

@@ -1,0 +1,165 @@
+{
+  "task_id": "2c25c51e-d9a2-42da-8c1c-954236e412c2",
+  "report_filename": "IHM(1-10).pdf",
+  "guideline_id": "c7fd36b8-da28-4dda-a3fb-ad213226515c",
+  "guideline_filename": "c7fd36b8-da28-4dda-a3fb-ad213226515c.pdf",
+  "generated_at": "2025-12-03T23:07:45.974921",
+  "completed_at": "2025-12-03T23:07:45.974926",
+  "status": "completed",
+  "compliance_check": {
+    "rows": [
+      {
+        "mepc_reference": "MEPC.379 Page 44, Particulars of the ship (e.g., Port of registry, Type of vessel, Gross tonnage, Shipowner, Date of delivery)",
+        "ihm_output": "Page 1 lists Name (MV GREAT ROYAL) and IMO NO (9083081). Missing: Port of registry, Type of vessel, Gross tonnage, Shipbuilder, Shipowner, Date of delivery.",
+        "status": "Non-Compliant",
+        "remarks": "Mandatory identifying particulars required for the cover page of the IHM are absent from the introductory section provided.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 44, Standard Cover Declaration/Signature Block",
+        "ihm_output": "Pages 1-4 do not contain the standard declaration 'This inventory was developed in accordance with the guidelines...' or the dated signature block ('Prepared by XYZ...').",
+        "status": "Non-Compliant",
+        "remarks": "The required standardized declaration and preparation statement/date block confirming adherence to the guidelines is missing from the introductory pages.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 44, Required Attachment 3 (Location diagram of hazardous materials)",
+        "ihm_output": "The Table of Contents (Pages 2-3) lists 'Location of samples collected on-board' (Page 30) but does not explicitly list 'Attachment 3: Location diagram of hazardous materials' as a standalone required attachment.",
+        "status": "Partially Compliant",
+        "remarks": "While location information is implied, the specific attachment title required by the standard cover format (Attachment 3) is not used in the report's Table of Contents structure.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 6, Section 4.1.4 (Process for checking materials based on MD/SDoC)",
+        "ihm_output": "Appendix – 9 Material Declaration (MD) : 197; Appendix – 10 Supplier's Declaration of Conformity (SDoC) : 198 (Page 2)",
+        "status": "Compliant",
+        "remarks": "The report structure includes the necessary supporting documentation (MDs/SDoCs) as required for the assessment phase.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 6, Section 4.1.3 (Part III Scope - Stores and Consumables)",
+        "ihm_output": "Part-III Potentially containing hazardous material in stores (Page 10), including III-1 (Stores), III-2 (Liquids), III-3 (Gases), and III-4 (Regular consumable goods) (Page 2).",
+        "status": "Compliant",
+        "remarks": "The Table of Contents shows the inclusion of all required elements and categories necessary for Part III of the Inventory.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 29 (Flow Diagram methodology steps)",
+        "ihm_output": "Steps 1, 2, 3, 4, and 5 are explicitly listed in the TOC (Pages 24, 29, 45, 55, 96), covering Collection, Assessment, VSCP, On-board check, and Preparation of Part I.",
+        "status": "Compliant",
+        "remarks": "The report follows the standard step-by-step methodology outlined in the guidelines for developing Part I of the IHM for existing ships.",
+        "chunk_start_page": 1,
+        "chunk_end_page": 4
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 45, Footnote * Each item should be entered in order based on its location...",
+        "ihm_output": "Items in I-2 (Pages 7-8) are listed non-sequentially: Nav. Bridge (R1) -> A Deck (R5) -> Upper Deck (R7) -> E/R 2ND Deck (R10) -> E/R 3rd Deck (R15) -> E/R 2ND Deck (R16).",
+        "status": "Non-Compliant",
+        "remarks": "I-2 entries are not consistently sorted from lower level to upper level or vice versa, violating the spatial ordering requirement for listing items.",
+        "chunk_start_page": 5,
+        "chunk_end_page": 8
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 45, Section I-3 Structure and hull containing materials...",
+        "ihm_output": "The report pages 7 and 8 only contain I-1 and I-2. Section I-3 (Structure and Hull) is omitted.",
+        "status": "Non-Compliant",
+        "remarks": "All required sections (I-1, I-2, I-3) of Part I must be documented in the IHM, even if to state 'None Found' or 'N/A' for the category.",
+        "chunk_start_page": 5,
+        "chunk_end_page": 8
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 45, Table I-2 Approximate quantity field and required units.",
+        "ihm_output": "Page 7, I-2, Item 1 (Light): Approximate quantity listed as '04'. The unit ('pcs') is only present in the Remarks column ('total of 4 Mercury Vapor Lamps Available Onboard').",
+        "status": "Partially Compliant",
+        "remarks": "The quantity field lacks explicit units for counts ('pcs'), which are provided in the Remarks section instead of the designated quantity column, leading to inconsistency compared to entries measured in 'kg' or 'gm'.",
+        "chunk_start_page": 5,
+        "chunk_end_page": 8
+      },
+      {
+        "mepc_reference": "MEPC.379(80) Page 44, Table I-1 Paints and coating systems documentation.",
+        "ihm_output": "Page 7, Table I-1 lists 'N/A' across all fields (Application, Name of paint, Location, Materials, Approximate quantity, Remarks).",
+        "status": "Partially Compliant",
+        "remarks": "The use of 'N/A' without specific remarks confirming the absence of hazardous coatings (like TBT, based on sampling or MDs) reduces confidence in the completeness of the I-1 investigation, though the table structure is present.",
+        "chunk_start_page": 5,
+        "chunk_end_page": 8
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 19, Part II Table Structure",
+        "ihm_output": "Page 10, Item 1 (Waste Oil): M/E L.O. Sump, SEPT. Oil Tank, Slop Tank, Waste Oil Service Tank list '-' as Approximate quantity.",
+        "status": "Non-Compliant",
+        "remarks": "The guideline requires an approximate quantity for all listed items/locations. Use of '-' implies data is missing or incomplete, especially for existing tanks that hold potentially generated waste.",
+        "chunk_start_page": 9,
+        "chunk_end_page": 10
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 19, Part II Note 1 (Location specificity)",
+        "ihm_output": "Page 10, Item 10 (Garbage): Location is 'Various locations on the vessel'.",
+        "status": "Non-Compliant",
+        "remarks": "Part II requires a specific location for waste storage areas (e.g., 'Garbage locker' as per MEPC example). 'Various locations' is too vague for the final storage point.",
+        "chunk_start_page": 9,
+        "chunk_end_page": 10
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 15 (Appendix 1, C-33), and Page 19 (Part II Structure)",
+        "ihm_output": "Page 10, Item 3 (Oily Liquid Cargo Tank Residue): Location is blank ('-') and quantity is blank ('-').",
+        "status": "Non-Compliant",
+        "remarks": "If this type of waste (C-33) is applicable to the ship type, the specific tanks/locations must be listed, along with their approximate capacities or typical quantity. If N/A, a remark stating so should be used.",
+        "chunk_start_page": 9,
+        "chunk_end_page": 10
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 19, Part II Table Structure",
+        "ihm_output": "Page 10, Item 13 (Oily / contaminated rags): Location is blank ('-') but quantity is listed as 0.1 M3.",
+        "status": "Non-Compliant",
+        "remarks": "Location (e.g., storage barrel in the Engine Room workshop) must be specified for stored waste streams like oily rags, as required by the Part II structure.",
+        "chunk_start_page": 9,
+        "chunk_end_page": 10
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 19, Part II Table Structure",
+        "ihm_output": "Page 10, Item 8 (Medical Waste / Infectious Waste): Location is blank ('-').",
+        "status": "Non-Compliant",
+        "remarks": "The location where medical waste is stored or generated (e.g., hospital, medical locker) must be specified.",
+        "chunk_start_page": 9,
+        "chunk_end_page": 10
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 19, Part II Table Structure",
+        "ihm_output": "Page 10, Item 9 (Incinerator Ash): Location is listed as 'Steering room'.",
+        "status": "Partially Compliant",
+        "remarks": "While a location is listed, the quantity is blank ('-'). Furthermore, this location seems atypical for ash storage, requiring clarification/justification in the Remarks column (which is blank).",
+        "chunk_start_page": 9,
+        "chunk_end_page": 10
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 19, Part II Table Structure",
+        "ihm_output": "Page 10, Items 6, 7, 11, 12, 14 lack location, quantity, and remarks, despite listing common waste classifications.",
+        "status": "Non-Compliant",
+        "remarks": "For mandatory potential waste streams, if they are not applicable or zero, a clear remark ('N/A' or 'Not applicable to vessel type') must be provided; leaving fields entirely blank suggests incomplete documentation.",
+        "chunk_start_page": 9,
+        "chunk_end_page": 10
+      },
+      {
+        "mepc_reference": "MEPC.379 Page 28, Table 1 (Part I structure fields)",
+        "ihm_output": "Page 9, Item 17 (Asbestos): Includes Name of equipment, Location, Material classification, Parts where used, Approximate quantity (800 gm), and Remarks.",
+        "status": "Compliant",
+        "remarks": "All required fields for a Part I item (Asbestos in Gasket/Pipeline) are populated, including specific location and approximate quantity with documentation reference.",
+        "chunk_start_page": 9,
+        "chunk_end_page": 10
+      }
+    ],
+    "summary": {
+      "total_rows": 18,
+      "total_compliant": 4,
+      "total_non_compliant": 10,
+      "total_partial": 4,
+      "total_chunks": 3,
+      "total_pages": 10
+    }
+  }
+}
