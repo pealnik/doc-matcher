@@ -86,6 +86,9 @@ def load_existing_guidelines():
             continue  # Already loaded
 
         try:
+            # Check if metadata file exists
+            metadata_path = GUIDELINES_DIR / f"{guideline_id}.json"
+            
             # Check if vectorstore exists
             vectorstore_path = VECTORSTORE_DIR / guideline_id
             vectorstore_ready = vectorstore_path.exists()
@@ -94,6 +97,8 @@ def load_existing_guidelines():
                 # Delete incomplete guideline (no vectorstore)
                 logger.warning(f"  Deleting incomplete guideline: {pdf_file.name} (no vectorstore)")
                 pdf_file.unlink()
+                if metadata_path.exists():
+                    metadata_path.unlink()
                 deleted_count += 1
 
                 # Also delete any partial vectorstore if it exists
@@ -103,28 +108,32 @@ def load_existing_guidelines():
 
                 continue
 
-            # Get file info
-            file_size = pdf_file.stat().st_size
+            # Load metadata from JSON if it exists, otherwise reconstruct
+            if metadata_path.exists():
+                with open(metadata_path, "r") as f:
+                    guideline_data = json.load(f)
+                    guideline_data["vectorstore_ready"] = True
+            else:
+                # Fallback: reconstruct metadata (old guidelines without JSON)
+                file_size = pdf_file.stat().st_size
+                try:
+                    page_count = PDFExtractor.get_pdf_page_count(str(pdf_file))
+                except Exception:
+                    page_count = None
 
-            # Get page count
-            try:
-                page_count = PDFExtractor.get_pdf_page_count(str(pdf_file))
-            except Exception:
-                page_count = None
-
-            # Store metadata (only for complete guidelines)
-            guideline_data = {
-                "id": guideline_id,
-                "filename": pdf_file.name,
-                "uploaded_at": datetime.fromtimestamp(pdf_file.stat().st_mtime).isoformat(),
-                "size": file_size,
-                "pages": page_count,
-                "file_path": str(pdf_file),
-                "vectorstore_ready": True
-            }
+                guideline_data = {
+                    "id": guideline_id,
+                    "filename": pdf_file.name,  # Will be UUID.pdf for old files
+                    "uploaded_at": datetime.fromtimestamp(pdf_file.stat().st_mtime).isoformat(),
+                    "size": file_size,
+                    "pages": page_count,
+                    "file_path": str(pdf_file),
+                    "vectorstore_ready": True
+                }
+            
             guidelines_db[guideline_id] = guideline_data
             loaded_count += 1
-            logger.info(f"  ✓ Loaded guideline: {pdf_file.name}")
+            logger.info(f"  ✓ Loaded guideline: {guideline_data['filename']}")
 
         except Exception as e:
             logger.error(f"  Failed to process guideline {pdf_file.name}: {e}")
@@ -240,6 +249,11 @@ async def upload_guideline(file: UploadFile = File(...)):
         }
         guidelines_db[guideline_id] = guideline_data
 
+        # Save metadata to disk for persistence across restarts
+        metadata_path = GUIDELINES_DIR / f"{guideline_id}.json"
+        with open(metadata_path, "w") as f:
+            json.dump(guideline_data, f, indent=2)
+
         # Build vectorstore in background
         asyncio.create_task(build_vectorstore_async(guideline_id, str(file_path)))
 
@@ -271,6 +285,11 @@ async def delete_guideline(guideline_id: str):
     file_path = Path(guideline["file_path"])
     if file_path.exists():
         file_path.unlink()
+
+    # Delete metadata file
+    metadata_path = GUIDELINES_DIR / f"{guideline_id}.json"
+    if metadata_path.exists():
+        metadata_path.unlink()
 
     # Delete vectorstore
     vectorstore_path = VECTORSTORE_DIR / guideline_id

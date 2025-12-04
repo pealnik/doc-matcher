@@ -17,6 +17,7 @@ ENV/
 # Uploads and vectorstores (user data)
 uploads/
 vectorstores/
+results/
 
 # IDE
 .vscode/
