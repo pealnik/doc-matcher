@@ -29,7 +29,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_core.documents import Document
 
 # LLM
-import google.generativeai as genai
+from openai import OpenAI
 
 # Environment variables
 from dotenv import load_dotenv
@@ -249,22 +249,22 @@ class GuidelineRAG:
 
 
 class ComplianceChecker:
-    """Handles compliance checking using Gemini API."""
+    """Handles compliance checking using OpenAI API."""
 
     def __init__(self, api_key: str, model_name: str = None):
         """
-        Initialize Gemini API client.
+        Initialize OpenAI API client.
 
         Args:
-            api_key: Gemini API key
-            model_name: Gemini model to use (defaults to GEMINI_MODEL env var or gemini-1.5-flash)
+            api_key: OpenAI API key
+            model_name: OpenAI model to use (defaults to gpt-4o-mini)
         """
         if model_name is None:
-            model_name = os.environ.get('GEMINI_MODEL', 'gemini-1.5-flash')
+            model_name = os.environ.get('OPENAI_MODEL', 'gpt-4o-mini')
 
-        genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel(model_name)
-        logger.info(f"Initialized Gemini model: {model_name}")
+        self.client = OpenAI(api_key=api_key)
+        self.model_name = model_name
+        logger.info(f"Initialized OpenAI model: {model_name}")
 
     def check_compliance(self, report_chunk: str, guideline_context: List[Dict[str, Any]],
                         chunk_start_page: int, chunk_end_page: int) -> Dict[str, Any]:
@@ -337,26 +337,34 @@ If fully compliant with all checked requirements, return one row with status "Co
 """
 
         try:
-            # Call Gemini API
-            response = self.model.generate_content(prompt)
+            # Call OpenAI API
+            response = self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[
+                    {"role": "system", "content": "You are a compliance auditor. Always respond with valid JSON."},
+                    {"role": "user", "content": prompt}
+                ],
+                response_format={"type": "json_object"},
+                temperature=0.1,
+                max_tokens=4000
+            )
 
-            # Check if response was blocked by safety filters
-            if not response.parts:
-                # Handle safety block or empty response
-                logger.warning(f"Gemini response blocked or empty for pages {chunk_start_page}-{chunk_end_page}")
-                logger.warning(f"Finish reason: {response.candidates[0].finish_reason if response.candidates else 'Unknown'}")
-
-                # Return a row indicating the issue
+            # Check if response is empty
+            if not response.choices or not response.choices[0].message.content:
+                logger.warning(f"OpenAI response empty for pages {chunk_start_page}-{chunk_end_page}")
                 return {
                     "rows": [{
                         "mepc_reference": "Processing Issue",
-                        "ihm_output": f"Pages {chunk_start_page}-{chunk_end_page}: Content could not be analyzed (possibly blocked by safety filters or too long)",
+                        "ihm_output": f"Pages {chunk_start_page}-{chunk_end_page}: Content could not be analyzed",
                         "status": "Partially Compliant",
                         "remarks": "Unable to complete analysis for this section. Please review manually or try processing in smaller chunks."
                     }]
                 }
 
-            response_text = response.text.strip()
+            response_text = response.choices[0].message.content.strip()
+
+            # Log raw response for debugging
+            logger.debug(f"Raw LLM response: {response_text[:200]}...")
 
             # Remove markdown code blocks if present
             if response_text.startswith("```json"):
@@ -366,6 +374,18 @@ If fully compliant with all checked requirements, return one row with status "Co
             if response_text.endswith("```"):
                 response_text = response_text[:-3]  # Remove ```
             response_text = response_text.strip()
+
+            # Try to extract JSON if there's extra text
+            # Look for the first { and last }
+            if not response_text.startswith("{"):
+                json_start = response_text.find("{")
+                if json_start != -1:
+                    response_text = response_text[json_start:]
+            
+            if not response_text.endswith("}"):
+                json_end = response_text.rfind("}")
+                if json_end != -1:
+                    response_text = response_text[:json_end + 1]
 
             # Parse JSON response
             result = json.loads(response_text)
@@ -377,7 +397,7 @@ If fully compliant with all checked requirements, return one row with status "Co
             return result
 
         except json.JSONDecodeError as e:
-            logger.error(f"Failed to parse Gemini response as JSON: {e}")
+            logger.error(f"Failed to parse OpenAI response as JSON: {e}")
             logger.error(f"Response text: {response_text}")
             # Return fallback result in new format
             return {

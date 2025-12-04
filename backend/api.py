@@ -160,13 +160,11 @@ async def lifespan(app: FastAPI):
 app.router.lifespan_context = lifespan
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-if not OPENAI_API_KEY or not GEMINI_API_KEY:
-    print("Warning: API keys not found in environment")
+if not OPENAI_API_KEY:
+    print("Warning: OPENAI_API_KEY not found in environment")
 else:
     print(f"✓ OpenAI API key loaded (ends with: ...{OPENAI_API_KEY[-4:]})")
-    print(f"✓ Gemini API key loaded (ends with: ...{GEMINI_API_KEY[-4:]})")
 
 # Graceful shutdown handler
 def signal_handler(sig, frame):
@@ -523,7 +521,7 @@ def process_compliance_check(task_id: str, report_path: str, guideline_ids: List
         update_task(task_id, progress=20, message="Initializing compliance checker...")
 
         # Initialize checker
-        checker = ComplianceChecker(api_key=GEMINI_API_KEY)
+        checker = ComplianceChecker(api_key=OPENAI_API_KEY)
 
         # Get total pages
         total_pages = PDFExtractor.get_pdf_page_count(report_path)
