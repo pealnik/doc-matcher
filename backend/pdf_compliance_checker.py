@@ -298,14 +298,18 @@ class ComplianceChecker:
 {report_chunk}
 
 **Task:**
-Carefully analyze the report chunk for compliance with MEPC requirements. For EACH relevant MEPC requirement found in the guidelines, create a row checking if the report meets it.
+Systematically analyze the report chunk against ALL MEPC requirements present in the Guidelines Context above. You must check every requirement mentioned in the guideline sections provided.
 
-Check for:
-- Required tables (Table A, B, C) and their completeness
-- Missing required fields (quantity, location, frame/deck, etc.)
-- Values that exceed thresholds
-- Specific location requirements vs vague descriptions
-- Documentation completeness
+For each distinct MEPC requirement/clause/table/field mentioned in the Guidelines Context, create exactly ONE row that checks compliance.
+
+**Mandatory checks (create a row for each that appears in Guidelines Context):**
+1. Required tables (Table A, B, C) - presence and structure
+2. Each required field within tables (quantity, location, frame/deck, CAS number, etc.)
+3. Data quality (specific vs vague values, threshold compliance)
+4. Documentation completeness for each section
+5. Format compliance for each data type
+6. Location specificity requirements
+7. Any other explicit requirements stated in the Guidelines Context
 
 **IMPORTANT Output Format:**
 Respond with ONLY a valid JSON object (no markdown code blocks) in this exact format:
@@ -320,8 +324,15 @@ Respond with ONLY a valid JSON object (no markdown code blocks) in this exact fo
     ]
 }}
 
+**Critical Rules:**
+1. Create ONE row per distinct requirement found in Guidelines Context
+2. Process requirements in the order they appear in Guidelines Context
+3. If a requirement is not applicable to this report chunk, still create a row with status "Compliant" and remarks "Not applicable to this section"
+4. Never skip a requirement mentioned in Guidelines Context
+5. Be consistent - same guideline context must always produce same number of rows
+
 **Examples:**
-- mepc_reference: "MEPC.379 Page 15, Table A - Asbestos"
+- mepc_reference: "MEPC.379 Page 15, Table A - Asbestos presence"
 - ihm_output: "Page {chunk_start_page}: Asbestos listed but quantity field empty"
 - status: "Non-Compliant"
 - remarks: "Quantity is mandatory under Table A requirements"
@@ -329,11 +340,9 @@ Respond with ONLY a valid JSON object (no markdown code blocks) in this exact fo
 OR
 
 - mepc_reference: "MEPC.379 Page 18, Section 4.2.2 - Location specificity"
-- ihm_output: "Page {chunk_start_page}: Location stated as 'various locations'"
-- status: "Non-Compliant"
-- remarks: "MEPC requires specific frame/deck/compartment designation"
-
-If fully compliant with all checked requirements, return one row with status "Compliant" and remarks "No issues found".
+- ihm_output: "Page {chunk_start_page}: Location stated as 'Engine Room Frame 45-52'"
+- status: "Compliant"
+- remarks: "Specific frame designation provided as required"
 """
 
         try:
@@ -345,8 +354,9 @@ If fully compliant with all checked requirements, return one row with status "Co
                     {"role": "user", "content": prompt}
                 ],
                 response_format={"type": "json_object"},
-                temperature=0.1,
-                max_tokens=4000
+                temperature=0,
+                max_tokens=4000,
+                seed=42  # For additional determinism
             )
 
             # Check if response is empty
