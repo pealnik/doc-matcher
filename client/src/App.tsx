@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { Alert, AlertDescription } from "./components/ui/alert";
 import { AlertCircle, CheckCircle } from "lucide-react";
 import { api } from "./lib/api";
@@ -6,8 +7,10 @@ import type { Guideline, TaskStatus } from "./lib/api";
 import { GuidelineList } from "./components/GuidelineList";
 import { ReportUpload } from "./components/ReportUpload";
 import { TaskProgress } from "./components/TaskProgress";
+import { ChecklistView } from "./components/ChecklistView";
 
-function App() {
+function HomePage() {
+  const navigate = useNavigate();
   const [guidelines, setGuidelines] = useState<Guideline[]>([]);
   const [selectedGuidelines, setSelectedGuidelines] = useState<string[]>([]);
   const [currentTask, setCurrentTask] = useState<TaskStatus | null>(null);
@@ -18,39 +21,64 @@ function App() {
     loadGuidelines();
   }, []);
 
-  // Poll for task updates every 3 seconds
   useEffect(() => {
     if (
       currentTask &&
       (currentTask.status === "pending" || currentTask.status === "processing")
     ) {
-      const interval = setInterval(async () => {
-        try {
-          const updated = await api.getTaskStatus(currentTask.task_id);
-          console.log("📊 Task update:", {
+      console.log("🔥 Starting SSE stream for task:", currentTask.task_id);
+
+      const eventSource = api.streamTaskStatus(
+        currentTask.task_id,
+        (updated) => {
+          console.log("📊 Task update (SSE):", {
             status: updated.status,
             progress: updated.progress,
             rowCount: updated.result?.rows?.length || 0,
             message: updated.message,
           });
-          setCurrentTask(updated);
+          setCurrentTask((prev) => {
+            if (!prev) return updated; // Should not happen with an existing currentTask
+
+            const newResult = prev.result
+              ? { ...prev.result }
+              : { rows: [], summary: {} };
+
+            // Handle incremental updates during processing
+            if (updated.status === "processing" && updated.result?.latest_row) {
+              // Append the latest row
+              newResult.rows = [...newResult.rows, updated.result.latest_row];
+              // Update summary
+              newResult.summary = updated.result.summary || newResult.summary;
+            } else if (updated.result) {
+              // For completed/failed tasks, or initial result, replace rows and summary
+              newResult.rows = updated.result.rows || newResult.rows;
+              newResult.summary = updated.result.summary || newResult.summary;
+            }
+
+            return {
+              ...prev,
+              ...updated,
+              result: newResult,
+              // Ensure task_id and created_at are preserved if not in update
+              task_id: prev.task_id,
+              created_at: prev.created_at,
+            };
+          });
 
           if (updated.status === "completed" || updated.status === "failed") {
-            console.log("✅ Task finished, stopping polling");
-            clearInterval(interval);
+            console.log("✅ Task finished, closing SSE stream");
+            eventSource.close();
           }
-        } catch (err) {
-          console.error("❌ Error polling task:", err);
         }
-      }, 3000); // Poll every 3 seconds
+      );
 
-      console.log("🔄 Started polling for task:", currentTask.task_id);
       return () => {
-        console.log("🛑 Stopped polling");
-        clearInterval(interval);
+        console.log("🛑 Closing SSE stream");
+        eventSource.close();
       };
     }
-  }, [currentTask?.task_id, currentTask?.status]);
+  }, [currentTask?.task_id]);
 
   // Poll for guideline indexing status
   useEffect(() => {
@@ -143,9 +171,25 @@ function App() {
     }
   };
 
+  const handleViewChecklist = (id: string) => {
+    navigate(`/checklist/${id}`);
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-50 p-8 relative">
       <div className="max-w-7xl mx-auto">
+        <div className="mb-8 flex items-center gap-3">
+          <img src="/autolinium.svg" alt="Logo" className="h-12 w-12" />
+          <a
+            href="https://autolinium.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-gray-600 hover:text-gray-900"
+          >
+            Developed by Autolinium.com
+          </a>
+        </div>
+
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900">
             PDF Compliance Checker
@@ -177,6 +221,7 @@ function App() {
               onGuidelineUpload={handleGuidelineUpload}
               onGuidelineDelete={handleGuidelineDelete}
               onGuidelineToggle={toggleGuideline}
+              onViewChecklist={handleViewChecklist}
             />
           </div>
 
@@ -191,6 +236,17 @@ function App() {
         </div>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/checklist/:id" element={<ChecklistView />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

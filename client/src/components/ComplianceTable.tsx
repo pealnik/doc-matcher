@@ -21,10 +21,10 @@ export function ComplianceTable({ rows, isProcessing }: ComplianceTableProps) {
             <thead className="bg-gray-50 sticky top-0">
               <tr>
                 <th className="px-4 py-3 text-left font-medium text-gray-700 border-b">
-                  MEPC Requirement / Reference
+                  Requirement ID / Reference
                 </th>
                 <th className="px-4 py-3 text-left font-medium text-gray-700 border-b">
-                  IHM Output
+                  Requirement Text / IHM Output / Evidence
                 </th>
                 <th className="px-4 py-3 text-left font-medium text-gray-700 border-b">
                   Status
@@ -39,10 +39,14 @@ export function ComplianceTable({ rows, isProcessing }: ComplianceTableProps) {
                 rows.map((row, idx) => (
                   <tr key={idx} className="border-b hover:bg-gray-50">
                     <td className="px-4 py-3 text-gray-900">
-                      {row.mepc_reference}
+                      <div className="space-y-1">
+                        <div className="font-medium">
+                          {row.requirement_id || row.mepc_reference}
+                        </div>
+                      </div>
                     </td>
                     <td className="px-4 py-3 text-gray-700">
-                      {row.ihm_output}
+                      {row.requirement_text || row.ihm_output || row.evidence}
                     </td>
                     <td className="px-4 py-3">
                       <Badge

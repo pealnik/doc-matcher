@@ -1,243 +1,149 @@
 # PDF Compliance Checker
 
-Check if a report PDF complies with a guideline PDF using RAG (Retrieval-Augmented Generation) and LLMs.
+A full-stack web application to check if a PDF document complies with a set of guidelines using Retrieval-Augmented Generation (RAG) and Large Language Models.
 
 ## Features
 
-- Handles large PDFs (200+ MB) efficiently with streaming
-- RAG-powered analysis using FAISS vector database
-- Extracts and analyzes text and tables from PDFs
-- Configurable Gemini models for compliance analysis
-- Generates detailed compliance reports with specific issues
-
-## Quick Start
-
-```bash
-# 1. Setup
-./setup.sh
-
-# 2. Configure API keys
-cp .env.example .env
-# Edit .env and add your API keys
-
-# 3. Run
-source venv/bin/activate
-python pdf_compliance_checker.py \
-    --guideline guideline.pdf \
-    --report report.pdf
-```
-
-## Installation
-
-### Prerequisites
-- Python 3.8+
-- OpenAI API key: https://platform.openai.com/api-keys
-- Gemini API key: https://makersuite.google.com/app/apikey
-
-### Setup
-```bash
-./setup.sh
-```
-
-Or manually:
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-## Configuration
-
-Create a `.env` file in the project root (copy from `.env.example`):
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` with your API keys:
-
-```bash
-# Required
-OPENAI_API_KEY=your-openai-api-key-here
-GEMINI_API_KEY=your-gemini-api-key-here
-
-# Optional (defaults to gemini-1.5-flash)
-GEMINI_MODEL=gemini-1.5-flash
-```
-
-**Model Options:**
-- `gemini-1.5-flash` - Fast, low cost (default)
-- `gemini-1.5-pro` - Better quality, higher cost
-- `gemini-2.0-flash-exp` - Experimental, very fast
-
-## Usage
-
-### Basic
-```bash
-python pdf_compliance_checker.py \
-    --guideline guideline.pdf \
-    --report report.pdf
-```
-
-**Monitor progress in real-time:**
-```bash
-# In another terminal, watch results as they stream in
-tail -f compliance_report.txt
-```
-
-### Advanced Options
-```bash
-python pdf_compliance_checker.py \
-    --guideline guideline.pdf \
-    --report report.pdf \
-    --chunk_pages 4 \
-    --output my_report.txt \
-    --rebuild_vectorstore \
-    --vectorstore_path custom_vectorstore \
-    --openai_api_key YOUR_KEY       # Optional: override env var
-    --gemini_api_key YOUR_KEY       # Optional: override env var
-```
-
-### Arguments
-
-| Argument | Default | Description |
-|----------|---------|-------------|
-| `--guideline` | Required | Path to guideline PDF |
-| `--report` | Required | Path to report PDF to check |
-| `--chunk_pages` | `4` | Pages per report chunk |
-| `--output` | `compliance_report.txt` | Output file path |
-| `--rebuild_vectorstore` | `False` | Force rebuild of vectorstore |
-| `--vectorstore_path` | `guideline_vectorstore` | Vectorstore directory |
-| `--openai_api_key` | From env | Override OPENAI_API_KEY |
-| `--gemini_api_key` | From env | Override GEMINI_API_KEY |
-
-## How It Works
-
-1. **Guideline Processing** (one-time)
-   - Extract text/tables from guideline PDF
-   - Chunk content (1000 chars, 200 overlap) **with page tracking**
-   - Generate embeddings using OpenAI
-   - Store in FAISS index with page metadata
-
-2. **Report Analysis** (per chunk)
-   - Extract N pages of report
-   - Retrieve top-5 relevant guideline sections **with page numbers**
-   - Send to Gemini with guideline page references
-   - Parse structured response with specific page citations
-
-3. **Output**
-   - Compile all results with **guideline page references**
-   - Generate detailed report with issues
-   - Show both report and guideline page numbers for verification
-
-## Output Format
-
-**Streaming Output:** Results are written incrementally as each chunk is processed. Monitor progress in real-time with `tail -f compliance_report.txt`.
-
-The compliance report follows this format:
-
-```
-# PDF Compliance Check Report
-
-Pages 1-4: Compliant.
-
-Pages 5-8: Non-compliant.
-  Issues found (2):
-    - Page 6: Value exceeds guideline maximum
-      Guideline Reference: Page 12: Section 2, Table 1
-      Reasoning: The value 15 exceeds maximum of 10 specified on guideline page 12...
-
-============================================================
-SUMMARY: Total issues found: 12
-Total chunks analyzed: 63
-============================================================
-```
-
-## Models
-
-### Embedding Model (OpenAI)
-- **Model**: `text-embedding-3-small`
-- **Purpose**: Convert text to vectors for similarity search
-- **Cost**: ~$0.02 per 1M tokens
-
-### LLM Model (Gemini)
-Configure via `GEMINI_MODEL` environment variable:
-
-| Model | Speed | Quality | Cost | Best For |
-|-------|-------|---------|------|----------|
-| `gemini-1.5-flash` | Fast | Good | Low | Large reports, quick checks |
-| `gemini-1.5-pro` | Medium | Better | Medium | Complex compliance |
-| `gemini-2.0-flash-exp` | Very Fast | Good | Low | Experimental, fastest |
-
-## Performance
-
-### Memory Efficiency
-- Page-by-page extraction (no full PDF in memory)
-- Streaming processing
-- FAISS vectorstore for fast search
-
-### Processing Time
-For 250-page, 194 MB report:
-- First run: 15-30 min (includes vectorstore build)
-- Subsequent: 10-20 min (reuses vectorstore)
-
-## Troubleshooting
-
-### Out of Memory
-```bash
-python pdf_compliance_checker.py ... --chunk_pages 2
-```
-
-### API Rate Limits
-Add delays in code or use rate-limited API wrapper
-
-### PDF Extraction Issues
-```python
-import pdfplumber
-pdf = pdfplumber.open("file.pdf")
-pdf.pages[0].extract_text()  # Test
-```
-
-### Vectorstore Issues
-```bash
-python pdf_compliance_checker.py ... --rebuild_vectorstore
-```
-
-### Check Logs
-```bash
-tail -f compliance_checker.log
-```
+- **Modern Web Interface**: Easy-to-use interface built with React for uploading documents and viewing compliance reports.
+- **Powerful FastAPI Backend**: A robust Python backend handles asynchronous processing of large documents.
+- **Hybrid Compliance Checking**: Uses a fixed, pre-generated checklist for deterministic analysis combined with RAG for semantic evidence retrieval from the document.
+- **Detailed Reporting**: Generates comprehensive reports detailing compliant and non-compliant items with specific evidence.
+- **Real-time Progress**: Monitor the compliance check status live in the UI.
 
 ## Project Structure
 
+The project is a monorepo containing the `backend` and `client` applications.
+
 ```
 doc-match/
-├── pdf_compliance_checker.py      # Main script
-├── requirements.txt               # Dependencies
-├── setup.sh                       # Setup script
-├── .env.example                   # Environment variables template
-├── .env                           # Your API keys (create from .env.example)
-├── .gitignore                     # Git ignore file
-├── README.md                      # This file
-├── compliance_report.txt          # Generated output
-├── compliance_checker.log         # Generated logs
-└── guideline_vectorstore/         # Generated FAISS index
+├── backend/                  # FastAPI application
+│   ├── main.py               # API server entrypoint
+│   ├── services.py           # Core application logic
+│   ├── requirements.txt      # Python dependencies
+│   └── ...
+├── client/                   # React frontend
+│   ├── src/App.tsx           # Main React component
+│   ├── package.json          # Node.js dependencies
+│   └── ...
+├── docker-compose.yml        # Docker configuration
+└── README.md                 # This file
 ```
 
-## Cost Estimates
+## Setup and Running the Application
 
-**OpenAI (embeddings)**:
-- Model: text-embedding-3-small
-- ~$0.02 per 1M tokens
-- 250-page PDF ≈ $0.50-$2.00
+### 1. Prerequisites
 
-**Gemini (LLM)**:
-- gemini-1.5-flash: ~$0.075 per 1M input tokens
-- 250-page report ≈ $1-$5 (depends on chunk size)
+- Python 3.8+ and `pip`
+- Node.js and `npm`
+- An OpenAI API key (for embeddings and/or compliance checks)
 
-Check current pricing:
-- OpenAI: https://openai.com/api/pricing/
-- Gemini: https://ai.google.dev/pricing
+### 2. Backend Setup
+
+First, set up and run the FastAPI server.
+
+```bash
+# Navigate to the backend directory
+cd backend
+
+# Create and activate a Python virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Configure environment variables by copying the example file
+cp .env.example .env
+
+# Edit the .env file and add your API keys (e.g., OPENAI_API_KEY)
+nano .env
+
+# Run the backend server
+uvicorn main:app --reload
+```
+The backend will now be running on `http://localhost:8000`.
+
+### 3. Frontend Setup
+
+In a new terminal, set up and run the React client.
+
+```bash
+# Navigate to the client directory
+cd client
+
+# Install Node.js dependencies
+npm install
+
+# Run the frontend development server
+npm run dev
+```
+The frontend will now be running on `http://localhost:5173` (or another port if 5173 is busy). You can access the application in your browser at this address.
+
+### Using Docker Compose (Alternative)
+
+Alternatively, you can build and run the entire application using Docker Compose. Ensure you have configured the `backend/.env` file first.
+
+```bash
+# From the project root directory:
+docker-compose up --build
+```
+
+## Architecture
+
+This project uses a full-stack architecture with a Python/FastAPI backend and a React frontend. Its workflow is divided into two distinct phases: an offline **Checklist Generation** step and an online **Compliance Checking** engine.
+
+```mermaid
+graph TD
+    subgraph "Phase 1: Offline Checklist Generation (Admin Task)"
+        A[Regulatory PDF e.g., MEPC.379(80)] -- "1. Extract Text" --> B(Checklist Generation Script);
+        B -- "2. Use LLM to Extract & Enrich" --> C[requirements_database.json];
+    end
+
+    subgraph "Phase 2: Online Compliance Check (User Workflow)"
+        subgraph "Client (Browser)"
+            D[React Frontend]
+        end
+        subgraph "Backend (FastAPI Server)"
+            E[API Endpoints]
+            F[Hybrid Checklist Checker]
+            G((Report Vectorstore))
+        end
+        C -- "3. Load Fixed Checklist" --> F;
+        D -- "4. User Uploads Report PDF" --> E;
+        E -- "5. Start Async Task" --> F;
+        F -- "6. Index Report into Vectorstore" --> G;
+        F -- "7. For each requirement..." --> F;
+        F -- "8. Retrieve relevant context from report" --> G;
+        F -- "9. Use LLM to check compliance" --> F;
+        F -- "10. Send real-time progress" --> D;
+        F -- "11. Store Final Report" --> E;
+        E -- "12. User downloads report" --> D;
+    end
+```
+
+### How it Works
+
+#### 1. Offline: Checklist Generation
+
+Before the main application can be used, a structured `requirements_database.json` file must be created. This is a one-time, offline process performed by an administrator using the `generate_checklist_from_mepc.py` script.
+
+1.  **PDF Processing**: The script takes a regulatory document (e.g., an MEPC guideline PDF) as input.
+2.  **LLM-Powered Extraction & Enrichment**: It uses a Large Language Model (LLM) to read the document and perform two key actions:
+    *   **Extract**: It identifies and pulls out all specific compliance requirements.
+    *   **Enrich**: For each requirement, it uses the LLM again to add crucial metadata, such as the compliance `category`, `severity`, `search_keywords`, and `expected_fields`.
+3.  **Output**: The script outputs the `requirements_database.json` file. This file acts as the definitive, fixed checklist for the entire system, ensuring that every compliance check is comprehensive and deterministic.
+
+#### 2. Online: Compliance Checking
+
+This is the live workflow when a user interacts with the web application.
+
+1.  **Upload**: A user uploads a report document (e.g., a Ship Recycling Plan) through the React frontend.
+2.  **Initiate Task**: The FastAPI backend receives the file and starts an asynchronous task using the `HybridFixedChecklistChecker`, which immediately loads the master `requirements_database.json`.
+3.  **Index Report**: The checker creates an in-memory vectorstore from the content of the user's uploaded report. This makes the entire report semantically searchable.
+4.  **Iterative Checking (RAG)**: The engine iterates through *every single requirement* from the checklist. For each one, it performs a **Retrieval-Augmented Generation (RAG)** step:
+    *   **Retrieve**: It searches the report's vectorstore to find the most relevant text chunks related to the current requirement.
+    *   **Augment & Generate**: It sends the requirement and the retrieved text chunks to an LLM, asking it to make a compliance judgment (`Compliant`, `Non-Compliant`, etc.) and provide the specific evidence from the text.
+5.  **Track Progress & Deliver Results**: The frontend UI is updated in real-time as each requirement is checked. Once complete, a final, detailed report is generated and made available to the user.
 
 ## License
 

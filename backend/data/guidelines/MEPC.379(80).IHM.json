@@ -1,0 +1,1183 @@
+{
+  "checklist_name": "Inventory of Hazardous Materials (IHM) Compliance Checklist",
+  "version": "1.0",
+  "last_updated": "2025-12-13",
+  "regulations": [
+    "RESOLUTION MEPC.379(80) - 2023 Guidelines for the development of the Inventory of Hazardous Materials"
+  ],
+  "total_requirements": 52,
+  "requirements": [
+    {
+      "id": "REQ_001",
+      "requirement": "Ships shall have on board an Inventory of Hazardous Materials prepared and verified according to guidelines.",
+      "regulation_source": "MEPC.379(80) Section 1.1",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "Inventory of Hazardous Materials",
+        "Verification Report",
+        "Compliance Guidelines",
+        "Ship Identification",
+        "Material List",
+        "Hazardous Material Location",
+        "Verification Date"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "Inventory of Hazardous Materials",
+        "IHM",
+        "MEPC.379(80)",
+        "verification",
+        "guidelines",
+        "compliance",
+        "ship"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_002",
+      "requirement": "Materials set out in appendix 1 should be listed in the Inventory.",
+      "regulation_source": "MEPC.379(80) Section 3.2.1",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "Material Name",
+        "Location on Ship",
+        "Quantity",
+        "Condition",
+        "Supplier Information"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "appendix 1",
+        "Inventory",
+        "MEPC.379(80)",
+        "Section 3.2.1",
+        "hazardous materials"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_003",
+      "requirement": "Each item in appendix 1 is classified under tables A, B, C, or D according to its properties.",
+      "regulation_source": "MEPC.379(80) Section 3.2.1",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "material_name",
+        "classification_table",
+        "hazardous_properties",
+        "location_on_ship",
+        "quantity",
+        "compliance_status"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "appendix 1",
+        "table A",
+        "hazardous properties",
+        "classification",
+        "MEPC.379(80)"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_004",
+      "requirement": "Loosely fitted equipment should not be listed in part I of the Inventory but should be listed in part III if remaining on board when the ship is recycled.",
+      "regulation_source": "MEPC.379(80) Section 3.2.3",
+      "category": "IHM Part III",
+      "expected_fields": [
+        "equipment_name",
+        "location_on_board",
+        "material_description",
+        "quantity",
+        "condition",
+        "recycling_plan"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "loosely fitted equipment",
+        "part I",
+        "part III",
+        "recycling",
+        "inventory"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_005",
+      "requirement": "Batteries containing lead acid or other hazardous materials that are fixed should be listed in part I; loosely fitted batteries should be listed in part III.",
+      "regulation_source": "MEPC.379(80) Section 3.2.4",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "fixed_batteries_list",
+        "battery_type",
+        "hazardous_material_content",
+        "location_on_ship",
+        "quantity",
+        "manufacturer_details"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "batteries",
+        "lead acid",
+        "hazardous materials",
+        "fixed",
+        "IHM Part I"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_006",
+      "requirement": "Materials listed in table B inherent in solid metals or metal alloys used in general construction are not required to be listed in the Inventory.",
+      "regulation_source": "MEPC.379(80) Section 3.3.1",
+      "category": "Hazardous Materials - Table B",
+      "expected_fields": [
+        "Material Name",
+        "Material Location",
+        "Material Quantity",
+        "Material Form",
+        "Exemption Justification"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "solid metals",
+        "metal alloys",
+        "general construction",
+        "Table B",
+        "IHM compliance"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_007",
+      "requirement": "The Inventory should be developed on the basis of the standard format set out in appendix 2.",
+      "regulation_source": "MEPC.379(80) Section 3.4",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "standard format",
+        "appendix 2",
+        "inventory development",
+        "compliance",
+        "IHM structure"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Inventory",
+        "standard format",
+        "appendix 2",
+        "MEPC.379(80)",
+        "Section 3.4"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_008",
+      "requirement": "Revised threshold values in tables A and B should be used for IHMs developed or updated after the adoption of the revised values.",
+      "regulation_source": "MEPC.379(80) Section 3.5",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "threshold_values",
+        "revision_date",
+        "IHM_version",
+        "compliance_status",
+        "update_procedure"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "threshold values",
+        "revised",
+        "Table A",
+        "Table B",
+        "IHM update",
+        "MEPC.379(80)"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_009",
+      "requirement": "Part I of the Inventory for new ships should be developed at the design and construction stage.",
+      "regulation_source": "MEPC.379(80) Section 4.1.1",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "ship_design_stage",
+        "construction_stage",
+        "hazardous_materials_list",
+        "material_location",
+        "material_quantity"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "new ships",
+        "design stage",
+        "construction stage",
+        "Part I Inventory",
+        "MEPC.379(80)"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_010",
+      "requirement": "Presence of materials listed in table A should be checked and confirmed; quantity and location should be listed in part I of the Inventory.",
+      "regulation_source": "MEPC.379(80) Section 4.1.2",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "material_name",
+        "quantity",
+        "location",
+        "confirmation_status",
+        "inventory_part"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "Table A",
+        "hazardous materials",
+        "quantity",
+        "location",
+        "confirmation",
+        "Inventory Part I"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_011",
+      "requirement": "If materials listed in table B are present above threshold values, their quantity and location should be listed in part I of the Inventory.",
+      "regulation_source": "MEPC.379(80) Section 4.1.3",
+      "category": "Hazardous Materials - Table B",
+      "expected_fields": [
+        "material_name",
+        "quantity",
+        "location",
+        "threshold_value",
+        "inventory_part"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "Table B",
+        "threshold values",
+        "quantity",
+        "location",
+        "Inventory Part I"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_012",
+      "requirement": "Checking of materials should be based on the Material Declaration furnished by suppliers.",
+      "regulation_source": "MEPC.379(80) Section 4.1.4",
+      "category": "Material Declarations",
+      "expected_fields": [
+        "Material Declaration",
+        "Supplier Information",
+        "Material Composition",
+        "Hazardous Material Identification",
+        "Compliance Status"
+      ],
+      "check_type": "declaration_verification",
+      "search_keywords": [
+        "Material Declaration",
+        "Supplier",
+        "Compliance",
+        "Hazardous Materials",
+        "Verification"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_013",
+      "requirement": "For existing ships, the procedure should include collection of necessary information, assessment, preparation of visual/sampling check plan, onboard visual/sampling check, and preparation of part I of the Inventory.",
+      "regulation_source": "MEPC.379(80) Section 4.2.1",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "collection of necessary information",
+        "assessment",
+        "visual/sampling check plan",
+        "onboard visual/sampling check",
+        "preparation of Inventory Part I"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "existing ships",
+        "collection",
+        "assessment",
+        "visual check",
+        "sampling check",
+        "Inventory Part I"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_014",
+      "requirement": "The procedures for existing ships should not be used for new installations resulting from conversion or repair after the initial preparation of the Inventory.",
+      "regulation_source": "MEPC.379(80) Section 4.2.2",
+      "category": "Procedural Compliance",
+      "expected_fields": [
+        "conversion procedures",
+        "repair procedures",
+        "new installation records",
+        "initial inventory",
+        "compliance verification",
+        "update logs"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "existing ships",
+        "new installations",
+        "conversion",
+        "repair",
+        "initial preparation",
+        "inventory update"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_015",
+      "requirement": "The procedures should be carried out by the shipowner, who may draw upon expert assistance.",
+      "regulation_source": "MEPC.379(80) Section 4.2.3",
+      "category": "Procedural Compliance",
+      "expected_fields": [
+        "shipowner",
+        "expert assistance",
+        "procedures",
+        "compliance documentation",
+        "IHM maintenance plan"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "shipowner",
+        "expert assistance",
+        "procedures",
+        "IHM compliance",
+        "MEPC.379(80)"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_016",
+      "requirement": "The onboard visual/sampling check should be carried out in accordance with the visual/sampling check plan.",
+      "regulation_source": "MEPC.379(80) Section 4.2.8.1",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "visual_check_plan",
+        "sampling_check_plan",
+        "inspection_report",
+        "sampling_results",
+        "compliance_certificate"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "visual check",
+        "sampling check",
+        "inspection plan",
+        "compliance",
+        "MEPC.379(80)"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_017",
+      "requirement": "Part I of the Inventory should be maintained and updated, especially after any repair, conversion, or sale of a ship.",
+      "regulation_source": "MEPC.379(80) Section 4.3.1",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "Inventory Update",
+        "Repair Records",
+        "Conversion Records",
+        "Sale Records",
+        "Maintenance Log"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Inventory",
+        "Update",
+        "Repair",
+        "Conversion",
+        "Sale",
+        "Maintenance"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_018",
+      "requirement": "If any machinery or equipment is added, removed, or replaced, part I of the Inventory should be updated.",
+      "regulation_source": "MEPC.379(80) Section 4.3.2",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "machinery_list",
+        "equipment_list",
+        "update_date",
+        "responsible_person",
+        "change_description"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "machinery",
+        "equipment",
+        "update",
+        "IHM Part I",
+        "MEPC.379(80)"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_019",
+      "requirement": "Part II of the Inventory should be developed before the final survey once the decision to recycle a ship has been taken.",
+      "regulation_source": "MEPC.379(80) Section 4.4.1",
+      "category": "IHM Part II",
+      "expected_fields": [
+        "Inventory Development Date",
+        "Recycling Decision Date",
+        "Final Survey Schedule",
+        "Hazardous Material List",
+        "Compliance Documentation"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Part II Inventory",
+        "final survey",
+        "recycle decision",
+        "MEPC.379(80)",
+        "Section 4.4.1"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_020",
+      "requirement": "If wastes listed in part II are intended for delivery with the ship to a recycling facility, their quantity should be estimated and listed.",
+      "regulation_source": "MEPC.379(80) Section 4.4.2",
+      "category": "IHM Part II",
+      "expected_fields": [
+        "waste_list",
+        "quantity_estimation",
+        "recycling_facility",
+        "delivery_intention",
+        "waste_description"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "wastes",
+        "Part II",
+        "recycling facility",
+        "quantity estimation",
+        "delivery"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_021",
+      "requirement": "Part III of the Inventory should be developed before the final survey once the decision to recycle has been taken.",
+      "regulation_source": "MEPC.379(80) Section 4.5.1",
+      "category": "IHM Part III",
+      "expected_fields": [
+        "Decision to Recycle Date",
+        "Final Survey Date",
+        "Part III Inventory Details",
+        "Recycling Facility Information",
+        "Compliance Verification"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Part III",
+        "final survey",
+        "recycle decision",
+        "MEPC.379(80)",
+        "Section 4.5.1"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_022",
+      "requirement": "If stores listed in part III are to be delivered with the ship to a recycling facility, their unit, quantity, and location should be listed.",
+      "regulation_source": "MEPC.379(80) Section 4.5.2",
+      "category": "IHM Part III",
+      "expected_fields": ["unit", "quantity", "location"],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "stores",
+        "recycling facility",
+        "unit",
+        "quantity",
+        "location",
+        "IHM Part III"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_023",
+      "requirement": "Regular consumable goods should be listed in part III if they are to be delivered with the ship to a recycling facility.",
+      "regulation_source": "MEPC.379(80) Section 4.5.4",
+      "category": "IHM Part III",
+      "expected_fields": [
+        "consumable_goods_list",
+        "delivery_plan",
+        "recycling_facility_details",
+        "compliance_status",
+        "material_description"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "consumable goods",
+        "recycling facility",
+        "IHM Part III",
+        "delivery",
+        "MEPC.379(80)"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_024",
+      "requirement": "The locations of hazardous materials on board should be described using the name of location given in the plans.",
+      "regulation_source": "MEPC.379(80) Section 4.6",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "location_name",
+        "hazardous_material_type",
+        "material_quantity",
+        "material_condition",
+        "plan_reference",
+        "material_description"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "hazardous materials",
+        "location",
+        "plans",
+        "IHM",
+        "MEPC.379(80)"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_025",
+      "requirement": "The conformity of part I of the Inventory at the design and construction stage should be ascertained by reference to the collected Supplier's Declaration of Conformity.",
+      "regulation_source": "MEPC.379(80) Section 5.1",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "Supplier's Declaration of Conformity",
+        "Inventory Part I",
+        "Design Stage Documentation",
+        "Construction Stage Documentation",
+        "Conformity Assessment",
+        "Material Compliance Records"
+      ],
+      "check_type": "declaration_verification",
+      "search_keywords": [
+        "conformity",
+        "design stage",
+        "construction stage",
+        "Supplier's Declaration",
+        "Inventory Part I",
+        "compliance"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_026",
+      "requirement": "Shipowners should designate a person responsible for maintaining and updating the Inventory.",
+      "regulation_source": "MEPC.379(80) Section 5.2.1",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "responsible_person",
+        "update_schedule",
+        "contact_information",
+        "training_records",
+        "IHM_version",
+        "compliance_status"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "responsible person",
+        "IHM update",
+        "maintenance",
+        "compliance",
+        "MEPC.379(80)",
+        "Section 5.2.1"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_027",
+      "requirement": "Suppliers should identify and declare whether materials listed in table A or B are present above the threshold value.",
+      "regulation_source": "MEPC.379(80) Section 6.1",
+      "category": "Material Declarations",
+      "expected_fields": [
+        "Supplier Name",
+        "Material Name",
+        "Presence Confirmation",
+        "Threshold Value",
+        "Table Reference",
+        "Declaration Date"
+      ],
+      "check_type": "declaration_verification",
+      "search_keywords": [
+        "Table A",
+        "Table B",
+        "threshold value",
+        "supplier declaration",
+        "MEPC.379(80)"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_028",
+      "requirement": "The Supplier's Declaration of Conformity should provide assurance that the related Material Declaration conforms to section 6.2.",
+      "regulation_source": "MEPC.379(80) Section 7.1.1",
+      "category": "Material Declarations",
+      "expected_fields": [
+        "Supplier's Declaration of Conformity",
+        "Material Declaration",
+        "Section 6.2 compliance",
+        "Assurance statement",
+        "Supplier information"
+      ],
+      "check_type": "declaration_verification",
+      "search_keywords": [
+        "Supplier's Declaration",
+        "Material Declaration",
+        "Section 6.2",
+        "Conformity",
+        "Assurance"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_029",
+      "requirement": "Materials listed in table A must not be installed on a ship if found in concentrations above the specified threshold value, unless exempted by the Convention.",
+      "regulation_source": "MEPC.379(80) Section 3.2.1",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "material_name",
+        "concentration_value",
+        "threshold_value",
+        "exemption_status",
+        "regulation_reference"
+      ],
+      "check_type": "material_testing",
+      "search_keywords": [
+        "Table A",
+        "threshold value",
+        "exemption",
+        "MEPC.379(80)",
+        "Section 3.2.1"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_030",
+      "requirement": "Products containing materials listed in table B in concentrations above the specified threshold value should be listed in the Inventory.",
+      "regulation_source": "MEPC.379(80) Section 3.2.2",
+      "category": "Hazardous Materials - Table B",
+      "expected_fields": [
+        "material_name",
+        "concentration_value",
+        "threshold_value",
+        "location_on_ship",
+        "supplier_information"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "Table B",
+        "concentration",
+        "threshold value",
+        "Inventory",
+        "MEPC.379(80)"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_031",
+      "requirement": "Suppliers should declare whether hazardous materials listed in table A and table B are present in concentrations above the threshold values.",
+      "regulation_source": "MEPC.379(80) Section 3.2",
+      "category": "Material Declarations",
+      "expected_fields": [
+        "Supplier Name",
+        "Material Name",
+        "Concentration Level",
+        "Table A Presence",
+        "Table B Presence"
+      ],
+      "check_type": "declaration_verification",
+      "search_keywords": [
+        "hazardous materials",
+        "table A",
+        "table B",
+        "threshold values",
+        "supplier declaration"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_032",
+      "requirement": "The Inventory should be structured and utilized according to categorization for part I: Paints and coating systems, Equipment and machinery, Structure and hull.",
+      "regulation_source": "MEPC.379(80) Section 5",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "Paints and coating systems",
+        "Equipment and machinery",
+        "Structure and hull"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "Inventory",
+        "Paints",
+        "Coating systems",
+        "Equipment",
+        "Machinery",
+        "Structure",
+        "Hull"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_033",
+      "requirement": "The standard unit for approximate quantity of solid hazardous materials should be kg; for liquids or gases, it should be either m3 or kg.",
+      "regulation_source": "MEPC.379(80) Section 5.2",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "material_type",
+        "approximate_quantity",
+        "unit_of_measurement",
+        "material_state",
+        "regulation_reference"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "solid hazardous materials",
+        "liquid hazardous materials",
+        "gas hazardous materials",
+        "kg",
+        "m3"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_034",
+      "requirement": "A location list covering all compartments of a ship should be prepared based on the ship's plans.",
+      "regulation_source": "MEPC.379(80) Section 5.3.1",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "compartment_name",
+        "compartment_number",
+        "ship_plan_reference",
+        "location_description",
+        "material_presence",
+        "hazardous_material_type"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "location list",
+        "compartments",
+        "ship plans",
+        "IHM",
+        "MEPC.379(80)",
+        "Section 5.3.1"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_035",
+      "requirement": "For existing ships, materials listed in table B should be listed in the Inventory if they can be identified in a practical way.",
+      "regulation_source": "MEPC.379(80) Section 2.2.4",
+      "category": "Hazardous Materials - Table B",
+      "expected_fields": [
+        "material_name",
+        "location_on_ship",
+        "quantity",
+        "identification_method",
+        "compliance_status"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "existing ships",
+        "Table B",
+        "Inventory",
+        "practical identification",
+        "MEPC.379(80)"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_036",
+      "requirement": "A checklist should be prepared for developing the Inventory for existing ships to clarify the results of each step.",
+      "regulation_source": "MEPC.379(80) Section 3",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "checklist",
+        "step_results",
+        "ship_identification",
+        "hazardous_materials_identification",
+        "compliance_status"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "checklist",
+        "inventory development",
+        "existing ships",
+        "step results",
+        "MEPC.379(80)"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_037",
+      "requirement": "Each item classified as 'Contained' or 'Not contained' should be subjected to a visual check on board.",
+      "regulation_source": "MEPC.379(80) Section 4.1",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "Item Classification",
+        "Visual Check Report",
+        "Inspector Name",
+        "Inspection Date",
+        "Item Location",
+        "Material Status"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Contained",
+        "Not contained",
+        "Visual check",
+        "Inspection",
+        "MEPC.379(80)",
+        "Section 4.1"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_038",
+      "requirement": "A visual/sampling check plan should be prepared before any onboard checks are conducted.",
+      "regulation_source": "MEPC.379(80) Section 4.3",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "visual_check_plan",
+        "sampling_check_plan",
+        "onboard_check_schedule",
+        "inspection_team_details",
+        "check_methodology",
+        "sampling_locations",
+        "safety_measures"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "visual check",
+        "sampling plan",
+        "onboard inspection",
+        "MEPC.379(80)",
+        "Section 4.3",
+        "compliance plan",
+        "inspection procedure"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_039",
+      "requirement": "Safety precautions should be in place on board to prevent potential exposure to hazardous materials during the visual/sampling check.",
+      "regulation_source": "MEPC.379(80) Section 4.4",
+      "category": "Procedural Compliance",
+      "expected_fields": [
+        "safety_precautions",
+        "exposure_prevention_measures",
+        "visual_check_protocol",
+        "sampling_check_protocol",
+        "crew_training_records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "safety precautions",
+        "exposure prevention",
+        "visual check",
+        "sampling check",
+        "hazardous materials"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_040",
+      "requirement": "The visual/sampling check should be conducted according to the plan, and checkpoints should be marked in the ship's plan or recorded with photographs.",
+      "regulation_source": "MEPC.379(80) Section 5.1",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "visual_check_plan",
+        "sampling_check_plan",
+        "marked_checkpoints",
+        "photographic_records",
+        "ship_plan"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "visual check",
+        "sampling check",
+        "ship's plan",
+        "photographs",
+        "checkpoints"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_041",
+      "requirement": "A 'visual/sampling check plan' should be prepared before any visual/sampling check on board is conducted.",
+      "regulation_source": "MEPC.379(80) Section 4.3",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "visual/sampling check plan",
+        "inspection schedule",
+        "sampling locations",
+        "responsible personnel",
+        "methodology",
+        "safety precautions"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "visual check",
+        "sampling plan",
+        "inspection procedure",
+        "IHM compliance",
+        "MEPC.379(80)",
+        "Section 4.3"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_042",
+      "requirement": "A schedule should be established to eliminate interference with other ongoing work on board during the visual/sampling check.",
+      "regulation_source": "MEPC.379(80) Section 4.4",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "schedule",
+        "interference mitigation",
+        "visual check",
+        "sampling check",
+        "ongoing work coordination"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "schedule",
+        "interference",
+        "visual check",
+        "sampling",
+        "coordination",
+        "MEPC.379(80)",
+        "Section 4.4"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_043",
+      "requirement": "Items listed in the visual/sampling check should be arranged in sequence so that the onboard check is conducted in a structured manner.",
+      "regulation_source": "MEPC.379(80) Section 4.5",
+      "category": "Procedural Compliance",
+      "expected_fields": [
+        "sequence",
+        "visual check",
+        "sampling check",
+        "structured manner",
+        "onboard check"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "sequence",
+        "visual check",
+        "sampling check",
+        "structured",
+        "onboard"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_044",
+      "requirement": "A person taking samples should be protected by the appropriate safety equipment relevant to the suspected type of hazardous materials encountered.",
+      "regulation_source": "MEPC.379(80) Section 5.2",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "safety equipment list",
+        "sampling procedure",
+        "hazardous material type",
+        "personnel protection records",
+        "sampling report"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "safety equipment",
+        "sampling",
+        "hazardous materials",
+        "protection",
+        "MEPC.379(80)"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_045",
+      "requirement": "Appropriate safety precautions should be in place for passengers, crew members, and other persons on board to minimize potential exposure to hazardous materials.",
+      "regulation_source": "MEPC.379(80) Section 5.2",
+      "category": "Procedural Compliance",
+      "expected_fields": [
+        "safety_precautions",
+        "exposure_minimization",
+        "passenger_safety",
+        "crew_safety",
+        "onboard_personnel_safety"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "safety precautions",
+        "exposure",
+        "hazardous materials",
+        "passengers",
+        "crew members"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_046",
+      "requirement": "The results of visual/sampling checks should be recorded in the checklist.",
+      "regulation_source": "MEPC.379(80) Section 5.3",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "visual_check_results",
+        "sampling_check_results",
+        "checklist_reference",
+        "date_of_check",
+        "inspector_name"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "visual check",
+        "sampling check",
+        "checklist",
+        "recording",
+        "MEPC.379(80)",
+        "Section 5.3"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_047",
+      "requirement": "Any equipment, systems, and/or areas of the ship that cannot be accessed for checks should be classified as 'potentially containing hazardous material' (PCHM).",
+      "regulation_source": "MEPC.379(80) Section 5.3",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "equipment_list",
+        "system_identification",
+        "area_description",
+        "accessibility_status",
+        "PCHM_classification"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "PCHM",
+        "hazardous material",
+        "inaccessible areas",
+        "IHM compliance",
+        "MEPC.379(80)"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_048",
+      "requirement": "The results of the check and the estimated quantity of hazardous materials should be recorded on the checklist.",
+      "regulation_source": "MEPC.379(80) Section 6.1",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "check_results",
+        "estimated_quantity",
+        "hazardous_materials_list",
+        "checklist_date",
+        "inspector_name"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "check results",
+        "estimated quantity",
+        "hazardous materials",
+        "checklist",
+        "MEPC.379(80)"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_049",
+      "requirement": "Part I of the Inventory should be developed with reference to the checklist.",
+      "regulation_source": "MEPC.379(80) Section 6.1",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "Material Name",
+        "Location on Board",
+        "Quantity",
+        "Condition",
+        "Supplier Information"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Inventory of Hazardous Materials",
+        "Part I",
+        "checklist",
+        "MEPC.379(80)",
+        "Section 6.1"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_050",
+      "requirement": "The development of a location diagram of hazardous materials is recommended to help the ship recycling facility gain a visual understanding of the Inventory.",
+      "regulation_source": "MEPC.379(80) Section 6.2",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "location diagram",
+        "hazardous materials",
+        "visual understanding",
+        "ship recycling facility",
+        "Inventory"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "location diagram",
+        "hazardous materials",
+        "visual understanding",
+        "ship recycling",
+        "Inventory"
+      ],
+      "severity": "low"
+    },
+    {
+      "id": "REQ_051",
+      "requirement": "For all ships, new installation of materials which contain asbestos shall be prohibited.",
+      "regulation_source": "MEPC.379(80) Appendix 6",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "asbestos_prohibition",
+        "new_installation_date",
+        "ship_identification",
+        "compliance_certificate",
+        "regulation_reference"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "asbestos",
+        "prohibition",
+        "new installation",
+        "MEPC.379(80)",
+        "Appendix 6"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_052",
+      "requirement": "When samples are directly taken from the hull, average values of cybutryne should not be present above 1,000 mg of cybutryne per kilogram of dry paint.",
+      "regulation_source": "MEPC.379(80) Appendix 6",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "cybutryne concentration",
+        "sample location",
+        "sample method",
+        "dry paint weight",
+        "test results",
+        "compliance status"
+      ],
+      "check_type": "material_testing",
+      "search_keywords": [
+        "cybutryne",
+        "hull samples",
+        "1,000 mg/kg",
+        "dry paint",
+        "MEPC.379(80)"
+      ],
+      "severity": "critical"
+    }
+  ]
+}

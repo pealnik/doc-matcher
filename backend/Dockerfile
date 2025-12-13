@@ -18,10 +18,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Create necessary directories
-RUN mkdir -p uploads/guidelines uploads/reports vectorstores
+RUN mkdir -p data/guidelines uploads/reports vectorstores
 
 # Expose port
 EXPOSE 8000
 
 # Run the application
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+

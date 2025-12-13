@@ -1,0 +1,1762 @@
+{
+  "checklist_name": "Checklist from Ship Recycling Facility Plan Output",
+  "version": "1.0",
+  "output_report_title": "Ship Recycling Facility Plan Compliance Report",
+  "last_updated": "2025-12-14",
+  "regulations": ["Ship Recycling Facility Plan Output"],
+  "total_requirements": 96,
+  "requirements": [
+    {
+      "id": "REQ_001",
+      "requirement": "Verify the revision date and number, and confirm that the SRF board has approved it with a signature.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.1",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "revision_date",
+        "revision_number",
+        "SRF_board_approval",
+        "signature"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "revision date",
+        "revision number",
+        "approval",
+        "signature"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_002",
+      "requirement": "Check each revision with description of changes.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.1",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "revision_description",
+        "change_log",
+        "revision_history"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": ["revision", "description of changes", "change log"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_003",
+      "requirement": "Ensure only trained workers are working, training records are appended in the SRFP.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.1",
+      "category": "Facility Information",
+      "expected_fields": [
+        "training_records",
+        "worker_qualification",
+        "SRFP_appendix"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["trained workers", "training records", "SRFP"],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_004",
+      "requirement": "Training program in place (External, Internal).",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "external_training_program",
+        "internal_training_program",
+        "training_schedule"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["training program", "external", "internal"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_005",
+      "requirement": "Training for all personnel including contractual personnel.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "personnel_training",
+        "contractual_personnel_training",
+        "training_inclusion"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["training", "personnel", "contractual"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_006",
+      "requirement": "Type and frequency of training.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "training_type",
+        "training_frequency",
+        "training_schedule"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["type of training", "frequency", "schedule"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_007",
+      "requirement": "Appropriate training prior performing job as per Training need assessment.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "training_prior_job",
+        "training_need_assessment",
+        "job_specific_training"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["training", "prior job", "need assessment"],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_008",
+      "requirement": "Training Report.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "training_report",
+        "completion_status",
+        "training_outcomes"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": ["training report", "completion", "outcomes"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_009",
+      "requirement": "HAZMAT handlers training.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "HAZMAT_training",
+        "handler_certification",
+        "safety_procedures"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["HAZMAT", "handlers", "training"],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_010",
+      "requirement": "Training Plan (Yearly) with planned and actual completion dates.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "yearly_training_plan",
+        "planned_dates",
+        "actual_completion_dates"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["training plan", "yearly", "completion dates"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_011",
+      "requirement": "Trainer selection criteria (In-house).",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Trainer qualifications",
+        "Selection criteria",
+        "Experience requirements"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "trainer selection",
+        "in-house criteria",
+        "qualifications"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_012",
+      "requirement": "Minimum training modules, Inhouse trainer’s pool.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Training modules list",
+        "Trainer pool",
+        "Module objectives"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "training modules",
+        "in-house trainer",
+        "module list"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_013",
+      "requirement": "Training modules review process.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Review schedule",
+        "Feedback mechanism",
+        "Update process"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["training review", "module update", "feedback"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_014",
+      "requirement": "How to Check Training effectiveness.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Effectiveness criteria",
+        "Assessment methods",
+        "Improvement plan"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["training effectiveness", "assessment", "evaluation"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_015",
+      "requirement": "Compulsory regulatory training (18% firefighting, rescue training by Fire service and civil defense).",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Firefighting training",
+        "Rescue training",
+        "Certification"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "firefighting training",
+        "rescue training",
+        "civil defense"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_016",
+      "requirement": "Annual drill Plan.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Drill schedule",
+        "Drill types",
+        "Participation records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "annual drill",
+        "emergency preparedness",
+        "drill plan"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_017",
+      "requirement": "Check Workers ID sample.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.3",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "ID sample",
+        "Verification process",
+        "Record keeping"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": ["worker ID", "identification sample", "verification"],
+      "severity": "low"
+    },
+    {
+      "id": "REQ_018",
+      "requirement": "Personnel files are to be maintained for each worker and management staff so all personnel records can be maintained.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.3",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Personnel files",
+        "Record maintenance",
+        "Access control"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "personnel files",
+        "record maintenance",
+        "staff records"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_019",
+      "requirement": "SRF maintains worker’s register working onboard or in the yard.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.3",
+      "category": "Documentation & Maintenance",
+      "expected_fields": ["Worker register", "Onboard records", "Yard records"],
+      "check_type": "document_presence",
+      "search_keywords": ["worker register", "onboard records", "yard records"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_020",
+      "requirement": "Worker’s attendance register is maintained.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.3",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Attendance register",
+        "Daily logs",
+        "Verification process"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "attendance register",
+        "worker attendance",
+        "daily logs"
+      ],
+      "severity": "low"
+    },
+    {
+      "id": "REQ_021",
+      "requirement": "A Person on Board (PoB) card or any other equivalent system is in use to assist during emergency evacuation.",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.3",
+      "category": "General",
+      "expected_fields": [
+        "PoB card system",
+        "emergency evacuation procedure",
+        "equivalent system documentation"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "PoB card",
+        "emergency evacuation",
+        "evacuation system"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_022",
+      "requirement": "How workers training is monitored?",
+      "regulation_source": "MEPC.210(63) Sub-Section 1.3",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "training records",
+        "monitoring process",
+        "training schedule"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "worker training",
+        "training monitoring",
+        "training records"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_023",
+      "requirement": "Facility Information have been included in SRFP.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.1",
+      "category": "Facility Information",
+      "expected_fields": ["facility name", "location", "contact details"],
+      "check_type": "field_presence",
+      "search_keywords": ["facility information", "SRFP", "facility details"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_024",
+      "requirement": "Location Map is included in SRFP.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.1",
+      "category": "Facility Information",
+      "expected_fields": [
+        "location map",
+        "site layout",
+        "geographical coordinates"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": ["location map", "SRFP", "site layout"],
+      "severity": "low"
+    },
+    {
+      "id": "REQ_025",
+      "requirement": "DIEF approved Layout plan is included in the SRFP.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.1",
+      "category": "Facility Information",
+      "expected_fields": [
+        "DIEF approval",
+        "layout plan",
+        "approval documentation"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": ["DIEF approved", "layout plan", "SRFP"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_026",
+      "requirement": "SRF arrangement has been included in SRFP.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.1",
+      "category": "Facility Information",
+      "expected_fields": [
+        "SRF arrangement",
+        "facility layout",
+        "operational zones"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": ["SRF arrangement", "facility layout", "SRFP"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_027",
+      "requirement": "HAZMAT rooms arrangement been included in SRFP.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.1",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "HAZMAT room layout",
+        "safety measures",
+        "storage protocols"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": ["HAZMAT rooms", "SRFP", "hazardous materials"],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_028",
+      "requirement": "All Safety Equipment included in SRFP.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.1",
+      "category": "Facility Information",
+      "expected_fields": [
+        "safety equipment list",
+        "maintenance records",
+        "inspection schedule"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": ["safety equipment", "SRFP", "equipment list"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_029",
+      "requirement": "Drainage system included in SRFP.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.1",
+      "category": "Facility Information",
+      "expected_fields": [
+        "drainage system layout",
+        "maintenance plan",
+        "inspection records"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": ["drainage system", "SRFP", "facility drainage"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_030",
+      "requirement": "SRF’s permit, license (validity and scope) as applicable to prove that the Facility is operated and maintained in a manner that complies with all applicable laws and regulations.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "permit validity",
+        "license scope",
+        "compliance documentation"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": ["permit", "license", "compliance"],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_031",
+      "requirement": "Visitor management (in yard and on board) specially vendor management including Visitor’s Familiarization.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Visitor Log",
+        "Familiarization Records",
+        "Vendor Authorization",
+        "Access Permissions",
+        "Safety Briefing"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Visitor management",
+        "Vendor management",
+        "Familiarization",
+        "Access control",
+        "Safety briefing"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_032",
+      "requirement": "HAZMAT Handlers and Sub-contractor’s authorization.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.2",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "Authorization Records",
+        "Handler Certification",
+        "Sub-contractor Agreements",
+        "HAZMAT Training",
+        "Compliance Documentation"
+      ],
+      "check_type": "declaration_verification",
+      "search_keywords": [
+        "HAZMAT Handlers",
+        "Sub-contractor authorization",
+        "Certification",
+        "Training",
+        "Compliance"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_033",
+      "requirement": "Ship acceptance procedure- Checklist.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.3",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Acceptance Checklist",
+        "Inspection Records",
+        "Compliance Verification",
+        "Ship Details",
+        "Approval Signatures"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "Ship acceptance",
+        "Checklist",
+        "Inspection",
+        "Verification",
+        "Approval"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_034",
+      "requirement": "The arrival preparation (On-site) procedure.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.5",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Preparation Procedure",
+        "Site Inspection",
+        "Safety Measures",
+        "Arrival Coordination",
+        "Compliance Checklist"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Arrival preparation",
+        "On-site procedure",
+        "Safety measures",
+        "Coordination",
+        "Compliance"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_035",
+      "requirement": "Safe access and exit at all times during demolition.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.5",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Access Routes",
+        "Exit Plans",
+        "Safety Inspections",
+        "Demolition Schedule",
+        "Emergency Procedures"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Safe access",
+        "Exit",
+        "Demolition",
+        "Safety",
+        "Emergency"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_036",
+      "requirement": "Arrival preparation including barricading open spaces.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.5",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Barricading Plans",
+        "Safety Inspections",
+        "Preparation Checklist",
+        "Open Space Management",
+        "Compliance Records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Arrival preparation",
+        "Barricading",
+        "Open spaces",
+        "Safety",
+        "Compliance"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_037",
+      "requirement": "Ladder safety arrangement is explained in SRFP.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.5",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Ladder Safety Procedures",
+        "SRFP Documentation",
+        "Safety Training",
+        "Inspection Records",
+        "Compliance Verification"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "Ladder safety",
+        "SRFP",
+        "Safety procedures",
+        "Training",
+        "Compliance"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_038",
+      "requirement": "Emergency Securing arrangement of the vessel.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.5",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Securing Procedures",
+        "Emergency Plans",
+        "Vessel Stability Records",
+        "Safety Equipment",
+        "Compliance Verification"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Emergency securing",
+        "Vessel",
+        "Safety",
+        "Stability",
+        "Compliance"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_039",
+      "requirement": "Recycling methodology including HAZMAT management.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.6",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "Recycling Methodology",
+        "HAZMAT Management Plan",
+        "Safety Procedures",
+        "Compliance Records",
+        "Training Documentation"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Recycling methodology",
+        "HAZMAT management",
+        "Safety",
+        "Compliance",
+        "Training"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_040",
+      "requirement": "Risk assessment covering all activities during recycling.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.6",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Risk Assessment Reports",
+        "Activity Logs",
+        "Safety Measures",
+        "Compliance Verification",
+        "Training Records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Risk assessment",
+        "Recycling activities",
+        "Safety",
+        "Compliance",
+        "Training"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_041",
+      "requirement": "Report after completion of ship recycling.",
+      "regulation_source": "MEPC.210(63) Sub-Section 2.7",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Completion Report",
+        "Recycling Summary",
+        "Compliance Verification",
+        "Environmental Impact",
+        "Worker Safety Records"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "report",
+        "completion",
+        "recycling",
+        "summary",
+        "verification"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_042",
+      "requirement": "Worker health and safety - Check the OSH practices in general.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.1",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "OSH Policy",
+        "Safety Training Records",
+        "Incident Reports",
+        "Safety Equipment Inventory",
+        "Health Monitoring Records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "worker health",
+        "safety",
+        "OSH",
+        "practices",
+        "compliance"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_043",
+      "requirement": "Safety Notification Form.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.1",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Notification Form",
+        "Safety Incident Details",
+        "Submission Date",
+        "Responsible Officer",
+        "Follow-up Actions"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "safety",
+        "notification",
+        "form",
+        "incident",
+        "report"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_044",
+      "requirement": "No work onboard after sunset.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.1",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Work Schedule",
+        "Lighting Conditions",
+        "Safety Protocols",
+        "Emergency Procedures",
+        "Supervisor Approval"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["work", "sunset", "night", "safety", "protocol"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_045",
+      "requirement": "Check the competency of competent personnel.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.2",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Competency Certificates",
+        "Training Records",
+        "Experience Logs",
+        "Performance Reviews",
+        "Certification Validity"
+      ],
+      "check_type": "declaration_verification",
+      "search_keywords": [
+        "competency",
+        "personnel",
+        "certification",
+        "training",
+        "qualification"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_046",
+      "requirement": "Identification of the team members of risk assessment team.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.3",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Team Member List",
+        "Roles and Responsibilities",
+        "Risk Assessment Training",
+        "Experience Records",
+        "Team Leader"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "risk assessment",
+        "team",
+        "members",
+        "identification",
+        "roles"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_047",
+      "requirement": "Full risk assessment procedure and review procedure.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.3",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Risk Assessment Procedure",
+        "Review Schedule",
+        "Hazard Identification",
+        "Mitigation Measures",
+        "Approval Records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "risk assessment",
+        "procedure",
+        "review",
+        "hazard",
+        "mitigation"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_048",
+      "requirement": "Documentation for safe for entry procedures.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.1",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Safe-for-Entry Procedures",
+        "Inspection Records",
+        "Testing Results",
+        "Entry Permits",
+        "Safety Officer Approval"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "safe-for-entry",
+        "procedures",
+        "documentation",
+        "inspection",
+        "testing"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_049",
+      "requirement": "Maintain safe working condition prior, during work in the enclosed spaces.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.1.1",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Safety Conditions",
+        "Monitoring Logs",
+        "Ventilation Systems",
+        "Emergency Equipment",
+        "Safety Inspections"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "safe working",
+        "enclosed spaces",
+        "conditions",
+        "monitoring",
+        "safety"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_050",
+      "requirement": "Permit system with inclusion of all entry parameters.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.1.1",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Permit System",
+        "Entry Parameters",
+        "Approval Process",
+        "Safety Checks",
+        "Record Keeping"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "permit system",
+        "entry parameters",
+        "safety",
+        "approval",
+        "record"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_051",
+      "requirement": "Safe for entry criteria as per MEPC Guidelines.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.1.1",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "Safe-for-entry criteria",
+        "Atmospheric conditions",
+        "Testing equipment",
+        "Compliance with MEPC guidelines",
+        "Documentation of criteria"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Safe-for-entry",
+        "MEPC Guidelines",
+        "Criteria",
+        "Atmosphere",
+        "Testing"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_052",
+      "requirement": "Competent person for Safe-for-entry determination- To measure the atmosphere and monitor continuously.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.1.2",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "Competent person",
+        "Atmosphere measurement",
+        "Continuous monitoring",
+        "Certification of competence",
+        "Monitoring equipment"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Competent person",
+        "Atmosphere",
+        "Monitoring",
+        "Measurement",
+        "Continuous"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_053",
+      "requirement": "Safe-for-entry inspection and testing procedures.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.1.3",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "Inspection procedures",
+        "Testing procedures",
+        "Documentation",
+        "Compliance records",
+        "Inspection schedule"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Inspection",
+        "Testing",
+        "Procedures",
+        "Safe-for-entry",
+        "Compliance"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_054",
+      "requirement": "Safe-for-entry determination by a Competent person.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.1.7",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "Competent person",
+        "Determination process",
+        "Certification",
+        "Documentation",
+        "Compliance verification"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Competent person",
+        "Determination",
+        "Safe-for-entry",
+        "Certification",
+        "Verification"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_055",
+      "requirement": "Safe-for-entry certificate, warning signs and labels.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.1.8",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Safe-for-entry certificate",
+        "Warning signs",
+        "Labels",
+        "Documentation",
+        "Compliance records"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "Certificate",
+        "Warning signs",
+        "Labels",
+        "Safe-for-entry",
+        "Documentation"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_056",
+      "requirement": "Safe-for-entry operational measures.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.1.9",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "Operational measures",
+        "Compliance procedures",
+        "Documentation",
+        "Safety protocols",
+        "Monitoring"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Operational measures",
+        "Safe-for-entry",
+        "Compliance",
+        "Safety",
+        "Monitoring"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_057",
+      "requirement": "Safe-for-hot-work procedures.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.2",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "Safe-for-hot-work procedures",
+        "Compliance records",
+        "Safety protocols",
+        "Documentation",
+        "Inspection schedule"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Safe-for-hot-work",
+        "Procedures",
+        "Compliance",
+        "Safety",
+        "Inspection"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_058",
+      "requirement": "Safe-for-hot-work criteria.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.2.1",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "Safe-for-hot-work criteria",
+        "Atmospheric conditions",
+        "Testing equipment",
+        "Compliance with guidelines",
+        "Documentation of criteria"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Safe-for-hot-work",
+        "Criteria",
+        "Atmosphere",
+        "Testing",
+        "Guidelines"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_059",
+      "requirement": "Competent person for Safe-for-hot-work determination.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.2.2",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "Competent person",
+        "Hot-work determination",
+        "Certification",
+        "Monitoring equipment",
+        "Documentation"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Competent person",
+        "Hot-work",
+        "Determination",
+        "Certification",
+        "Monitoring"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_060",
+      "requirement": "Safe-for-hot-work inspection, testing and determination.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.2.3",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "Inspection procedures",
+        "Testing procedures",
+        "Hot-work determination",
+        "Documentation",
+        "Compliance records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Inspection",
+        "Testing",
+        "Hot-work",
+        "Determination",
+        "Compliance"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_061",
+      "requirement": "Safe-for-hot-work certificate, warning signs and labels.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.2.4",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": ["certificate", "warning signs", "labels"],
+      "check_type": "document_presence",
+      "search_keywords": ["hot-work", "certificate", "warning signs", "labels"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_062",
+      "requirement": "Safe-for-hot-work operational measures.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.2.5",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "operational measures",
+        "safety procedures",
+        "compliance checks"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["hot-work", "operational measures", "safety"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_063",
+      "requirement": "Welding, cutting, grinding and heating.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.3",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "welding procedures",
+        "cutting guidelines",
+        "grinding safety",
+        "heating protocols"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["welding", "cutting", "grinding", "heating"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_064",
+      "requirement": "Drums, containers and pressure vessels.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.4",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "drum safety",
+        "container handling",
+        "pressure vessel protocols"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["drums", "containers", "pressure vessels"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_065",
+      "requirement": "Prevention of falling from heights and accidents caused by falling objects.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.5",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "fall prevention",
+        "safety harness",
+        "object securing"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["falling", "heights", "accidents", "objects"],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_066",
+      "requirement": "Gear and equipment for rigging and materials handling.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.6",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "rigging gear",
+        "equipment inspection",
+        "material handling"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["gear", "equipment", "rigging", "materials handling"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_067",
+      "requirement": "Housekeeping and illumination.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.7",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "housekeeping protocols",
+        "illumination standards",
+        "cleanliness"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["housekeeping", "illumination", "cleanliness"],
+      "severity": "low"
+    },
+    {
+      "id": "REQ_068",
+      "requirement": "Maintenance and decontamination of tools and equipment.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.8",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "tool maintenance records",
+        "decontamination procedures",
+        "equipment logs"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "maintenance",
+        "decontamination",
+        "tools",
+        "equipment"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_069",
+      "requirement": "Health and sanitation.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.9",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "health protocols",
+        "sanitation standards",
+        "hygiene practices"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["health", "sanitation", "hygiene"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_070",
+      "requirement": "Personal protective equipment.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.10",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "PPE inventory",
+        "usage guidelines",
+        "safety compliance"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": ["PPE", "personal protective equipment", "safety"],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_071",
+      "requirement": "Worker exposure and medical monitoring.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.4.11",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Exposure limits",
+        "Medical records",
+        "Health surveillance",
+        "Monitoring equipment",
+        "Worker training"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "worker exposure",
+        "medical monitoring",
+        "health surveillance",
+        "safety compliance",
+        "monitoring equipment"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_072",
+      "requirement": "Emergency preparedness and response plan (EPRP).",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.5",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Emergency contact list",
+        "Evacuation routes",
+        "Emergency drills",
+        "Response procedures",
+        "Communication plan"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "emergency preparedness",
+        "response plan",
+        "EPRP",
+        "evacuation",
+        "emergency drills"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_073",
+      "requirement": "Fire and explosion prevention, detection and response.",
+      "regulation_source": "MEPC.210(63) Sub-Section 3.6",
+      "category": "Worker Safety and Health Compliance",
+      "expected_fields": [
+        "Fire detection systems",
+        "Explosion prevention measures",
+        "Fire response plan",
+        "Firefighting equipment",
+        "Training records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "fire prevention",
+        "explosion detection",
+        "fire response",
+        "firefighting",
+        "safety measures"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_074",
+      "requirement": "Environmental monitoring.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.1",
+      "category": "Environmental Monitoring",
+      "expected_fields": [
+        "Air quality data",
+        "Water quality data",
+        "Soil contamination levels",
+        "Monitoring equipment",
+        "Reporting procedures"
+      ],
+      "check_type": "material_testing",
+      "search_keywords": [
+        "environmental monitoring",
+        "air quality",
+        "water quality",
+        "soil contamination",
+        "environmental data"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_075",
+      "requirement": "Management of Hazardous Materials.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.2",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "Material inventory",
+        "Handling procedures",
+        "Storage requirements",
+        "Disposal methods",
+        "Safety data sheets"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "hazardous materials",
+        "material management",
+        "safety data",
+        "handling procedures",
+        "storage requirements"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_076",
+      "requirement": "Potentially containing Hazardous Materials.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.2.1",
+      "category": "Hazardous Materials - Table B",
+      "expected_fields": [
+        "Material identification",
+        "Potential hazards",
+        "Risk assessment",
+        "Safety measures",
+        "Labeling requirements"
+      ],
+      "check_type": "declaration_verification",
+      "search_keywords": [
+        "potential hazardous materials",
+        "risk assessment",
+        "material identification",
+        "safety measures",
+        "labeling"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_077",
+      "requirement": "Additional sampling and analysis.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.2.2",
+      "category": "Verification & Testing",
+      "expected_fields": [
+        "Sampling plan",
+        "Analysis methods",
+        "Test results",
+        "Quality assurance",
+        "Compliance verification"
+      ],
+      "check_type": "material_testing",
+      "search_keywords": [
+        "sampling",
+        "analysis",
+        "testing",
+        "quality assurance",
+        "compliance verification"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_078",
+      "requirement": "Identification, marking and labelling and potential on-board locations.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.2.3",
+      "category": "IHM Part I",
+      "expected_fields": [
+        "Identification procedures",
+        "Marking guidelines",
+        "Labeling standards",
+        "Location mapping",
+        "Material documentation"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "identification",
+        "marking",
+        "labeling",
+        "on-board locations",
+        "material documentation"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_079",
+      "requirement": "Removal, handling and remediation.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.2.4",
+      "category": "Hazardous Materials - Table C/D",
+      "expected_fields": [
+        "Removal procedures",
+        "Handling guidelines",
+        "Remediation techniques",
+        "Safety protocols",
+        "Disposal records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "removal",
+        "handling",
+        "remediation",
+        "safety protocols",
+        "disposal"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_080",
+      "requirement": "Storage and labelling after removal.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.2.5",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Storage conditions",
+        "Labeling after removal",
+        "Inventory records",
+        "Safety data sheets",
+        "Compliance documentation"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "storage",
+        "labeling",
+        "inventory",
+        "safety data",
+        "compliance documentation"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_081",
+      "requirement": "Treatment, transportation and disposal.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.2.6",
+      "category": "Hazardous Materials - Table C/D",
+      "expected_fields": [
+        "Treatment method",
+        "Transportation records",
+        "Disposal certificates"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["treatment", "transportation", "disposal"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_082",
+      "requirement": "Environmentally sound management of Hazardous Materials.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.3",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "Management plan",
+        "Handling procedures",
+        "Safety measures"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "environmentally sound",
+        "hazardous materials",
+        "management"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_083",
+      "requirement": "Asbestos and materials containing asbestos.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.3.1",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "Asbestos inventory",
+        "Removal plan",
+        "Disposal records"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "asbestos",
+        "materials containing asbestos",
+        "removal"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_084",
+      "requirement": "PCBs and materials containing PCBs.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.3.2",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "PCB inventory",
+        "Handling procedures",
+        "Disposal records"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": ["PCBs", "materials containing PCBs", "disposal"],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_085",
+      "requirement": "Ozone-depleting substances (ODSs).",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.3.3",
+      "category": "Hazardous Materials - Table B",
+      "expected_fields": [
+        "ODS inventory",
+        "Phase-out plan",
+        "Disposal records"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": ["ozone-depleting substances", "ODS", "phase-out"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_086",
+      "requirement": "Paints and coatings.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.3.4",
+      "category": "Hazardous Materials - Table B",
+      "expected_fields": [
+        "Paint inventory",
+        "Safety data sheets",
+        "Application records"
+      ],
+      "check_type": "material_testing",
+      "search_keywords": ["paints", "coatings", "safety data"],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_087",
+      "requirement": "Anti-fouling compounds and systems (organotin compounds including tributyltin (TBT)).",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.3.4.1",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "Anti-fouling inventory",
+        "Removal plan",
+        "Disposal records"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": ["anti-fouling", "organotin", "TBT"],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_088",
+      "requirement": "Toxic and highly flammable paints.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.3.4.2",
+      "category": "Hazardous Materials - Table B",
+      "expected_fields": [
+        "Paint inventory",
+        "Flammability data",
+        "Safety measures"
+      ],
+      "check_type": "material_testing",
+      "search_keywords": ["toxic paints", "flammable paints", "safety"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_089",
+      "requirement": "Hazardous liquids, residues and sediments (such as oils, bilge, and ballast water).",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.3.5",
+      "category": "Hazardous Materials - Table C/D",
+      "expected_fields": [
+        "Liquid inventory",
+        "Handling procedures",
+        "Disposal records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": ["hazardous liquids", "residues", "sediments"],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_090",
+      "requirement": "Heavy metals (lead, mercury, cadmium and hexavalent chromium).",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.3.6",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "Heavy metal inventory",
+        "Safety data sheets",
+        "Disposal records"
+      ],
+      "check_type": "material_testing",
+      "search_keywords": [
+        "heavy metals",
+        "lead",
+        "mercury",
+        "cadmium",
+        "hexavalent chromium"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_091",
+      "requirement": "Other Hazardous Materials.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.3.7",
+      "category": "Hazardous Materials - Table C/D",
+      "expected_fields": [
+        "Material Identification",
+        "Labeling",
+        "Packaging",
+        "Removal Procedures",
+        "Safety Data Sheets"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "hazardous materials",
+        "identification",
+        "labeling",
+        "packaging",
+        "removal"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_092",
+      "requirement": "Prevention of adverse effects to the environment.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.4",
+      "category": "General",
+      "expected_fields": [
+        "Environmental Impact Assessment",
+        "Mitigation Measures",
+        "Monitoring Plan",
+        "Compliance Records",
+        "Training Programs"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "environmental effects",
+        "prevention",
+        "mitigation",
+        "monitoring",
+        "compliance"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_093",
+      "requirement": "Spill prevention, control and countermeasures.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.4.1",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Spill Prevention Plan",
+        "Control Measures",
+        "Countermeasure Procedures",
+        "Response Equipment",
+        "Training Records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "spill prevention",
+        "control",
+        "countermeasures",
+        "response",
+        "equipment"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_094",
+      "requirement": "Storm-water pollution prevention.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.4.2",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Storm-water Management Plan",
+        "Pollution Control Measures",
+        "Inspection Records",
+        "Maintenance Logs",
+        "Training Programs"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "storm-water",
+        "pollution prevention",
+        "management",
+        "control",
+        "inspection"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_095",
+      "requirement": "Debris prevention and control.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.4.3",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Debris Management Plan",
+        "Control Measures",
+        "Inspection Records",
+        "Waste Disposal Procedures",
+        "Training Records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "debris prevention",
+        "control",
+        "management",
+        "waste disposal",
+        "inspection"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_096",
+      "requirement": "Incident and spills reporting procedures.",
+      "regulation_source": "MEPC.210(63) Sub-Section 4.4.4",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Incident Reporting Procedures",
+        "Spill Reporting Forms",
+        "Response Logs",
+        "Communication Protocols",
+        "Training Records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "incident reporting",
+        "spills",
+        "procedures",
+        "communication",
+        "logs"
+      ],
+      "severity": "high"
+    }
+  ]
+}

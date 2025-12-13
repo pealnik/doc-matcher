@@ -27,3 +27,5 @@ compliance_checker.log
 Thumbs.db
 Report.pdf
 /DOCKER_DEPLOYMENT.md
+report
+results/

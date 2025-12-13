@@ -91,7 +91,10 @@ class PDFExtractor:
         return "\n".join(content)
 
     @staticmethod
-    def extract_pdf_by_pages(pdf_path: str, start_page: int = 1, end_page: int = None) -> List[str]:
+    def extract_pdf_by_pages(
+        pdf_path: str, start_page: int = 1, end_page: int = None,
+        progress_callback: callable = None
+    ) -> List[str]:
         """
         Extract content from PDF pages in a memory-efficient way.
 
@@ -99,6 +102,7 @@ class PDFExtractor:
             pdf_path: Path to PDF file
             start_page: Starting page number (1-indexed)
             end_page: Ending page number (1-indexed), None for all pages
+            progress_callback: Optional callable for progress reporting (current, total)
 
         Returns:
             List of page contents as markdown strings
@@ -107,17 +111,23 @@ class PDFExtractor:
 
         try:
             with pdfplumber.open(pdf_path) as pdf:
-                total_pages = len(pdf.pages)
-                end = end_page if end_page else total_pages
+                total_pages_in_doc = len(pdf.pages)
+                start_index = start_page - 1
+                end_index = end_page if end_page else total_pages_in_doc
+                
+                pages_to_process = pdf.pages[start_index:end_index]
+                total_pages_to_process = len(pages_to_process)
 
-                for page_num in range(start_page - 1, min(end, total_pages)):
+                for i, page in enumerate(pages_to_process):
                     try:
-                        page = pdf.pages[page_num]
                         content = PDFExtractor.extract_page_content(page)
                         pages_content.append(content)
+                        if progress_callback:
+                            # Report progress (current item, total items)
+                            progress_callback(i + 1, total_pages_to_process)
                     except Exception as e:
-                        logger.error(f"Error extracting page {page_num + 1}: {e}")
-                        pages_content.append(f"## Page {page_num + 1}\n[Error extracting content]")
+                        logger.error(f"Error extracting page {page.page_number}: {e}")
+                        pages_content.append(f"## Page {page.page_number}\n[Error extracting content]")
 
         except Exception as e:
             logger.error(f"Error opening PDF {pdf_path}: {e}")

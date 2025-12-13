@@ -1,0 +1,912 @@
+{
+  "checklist_name": "Checklist from Ship Recycling Plan Output",
+  "output_report_title": "Ship Recycling Plan Compliance Report",
+  "version": "1.0",
+  "last_updated": "2025-12-13",
+  "regulations": ["MEPC.196(62)"],
+  "total_requirements": 40,
+  "requirements": [
+    {
+      "id": "REQ_001",
+      "requirement": "Ship name, IMO number, flag state, type of ship and owner details must be clearly stated.",
+      "regulation_source": "Hong Kong International Convention for the Safe and Environmentally Sound Recycling of Ships- 2009",
+      "category": "Ship Information",
+      "expected_fields": [
+        "Ship name",
+        "IMO number",
+        "Flag state",
+        "Type of ship",
+        "Owner details"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "Ship name",
+        "IMO number",
+        "Flag state",
+        "Type of ship",
+        "Owner details"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_002",
+      "requirement": "Complete ship recycling facility information must be provided.",
+      "regulation_source": "Hong Kong International Convention for the Safe and Environmentally Sound Recycling of Ships- 2009",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Facility Name",
+        "Facility Location",
+        "Authorization Document",
+        "Recycling Plan",
+        "Competent Authority Approval"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "Ship Recycling Facility",
+        "Facility Information",
+        "Authorization Document",
+        "Recycling Plan",
+        "Competent Authority"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_003",
+      "requirement": "Project schedule of the ship recycling must be added.",
+      "regulation_source": "Hong Kong International Convention for the Safe and Environmentally Sound Recycling of Ships- 2009",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Project schedule",
+        "Ship Recycling Plan",
+        "Approval from Competent Authority",
+        "Ship-specific information",
+        "Dismantling sequence"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "project schedule",
+        "ship recycling plan",
+        "Hong Kong Convention",
+        "regulation 9",
+        "approval process"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_004",
+      "requirement": "Revision history of the SRP, SRP preparation team, preparation date, Team leader and approver signature must be appended.",
+      "regulation_source": "Hong Kong International Convention for the Safe and Environmentally Sound Recycling of Ships- 2009",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Revision history",
+        "SRP preparation team",
+        "Preparation date",
+        "Team leader signature",
+        "Approver signature"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "revision history",
+        "preparation team",
+        "preparation date",
+        "team leader",
+        "approver signature"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_005",
+      "requirement": "Identification of responsible parties (ship owner, recycler, IHM provider, etc.) must be included.",
+      "regulation_source": "Hong Kong International Convention for the Safe and Environmentally Sound Recycling of Ships- 2009",
+      "category": "General",
+      "expected_fields": [
+        "ship owner",
+        "recycler",
+        "IHM provider",
+        "responsible parties"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "responsible parties",
+        "ship owner",
+        "recycler",
+        "IHM provider",
+        "Hong Kong Convention"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_006",
+      "requirement": "General arrangement Plan (GA) plan must be added.",
+      "regulation_source": "MEPC.196 (62) Guidelines for the Development of the Ship Recycling Plan, 2011",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "General Arrangement Plan",
+        "Ship Recycling Plan",
+        "Document of Authorization to conduct Ship Recycling",
+        "Ship-specific information",
+        "Verification of Competent Authority Approval"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "General Arrangement Plan",
+        "Ship Recycling Plan",
+        "MEPC.196(62)",
+        "Hong Kong Convention",
+        "Ship-specific SRP"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_007",
+      "requirement": "Non-breathable spaces (Enclosed spaces) must be marked on GA plan and added.",
+      "regulation_source": "MEPC.196 (62) Guidelines for the Development of the Ship Recycling Plan, 2011",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "GA plan",
+        "Enclosed spaces marking",
+        "Ship Recycling Plan",
+        "Ship-specific information",
+        "Verification of Competent Authority Approval"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "non-breathable spaces",
+        "enclosed spaces",
+        "GA plan",
+        "ship recycling plan",
+        "MEPC.196(62)"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_008",
+      "requirement": "Inclusion of all information derived from all available plans must be summarized.",
+      "regulation_source": "MEPC.196 (62) Guidelines for the Development of the Ship Recycling Plan, 2011",
+      "category": "General",
+      "expected_fields": [
+        "Ship Recycling Plan",
+        "Ship-specific information",
+        "Ship Recycling Facility Plan",
+        "Document of Authorization to conduct Ship Recycling",
+        "Competent Authority Approval"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Ship Recycling Plan",
+        "Hong Kong Convention",
+        "MEPC.196(62)",
+        "Ship Recycling Facility",
+        "Competent Authority"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_009",
+      "requirement": "Approved Layout of the Facility must be added.",
+      "regulation_source": "MEPC.210 (63) Guidelines for Safe and Environmentally Sound Ship Recycling, 2012",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Facility Layout",
+        "Approval Documentation",
+        "Compliance Certificates",
+        "Operational Procedures",
+        "Safety Protocols"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "Approved Layout",
+        "Facility Plan",
+        "MEPC.210(63)",
+        "Ship Recycling Facility",
+        "Compliance"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_010",
+      "requirement": "Project management organogram must be included.",
+      "regulation_source": "MEPC.210 (63) Guidelines for Safe and Environmentally Sound Ship Recycling, 2012",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Project Management Organogram",
+        "Ship Recycling Plan",
+        "Document of Authorization to conduct Ship Recycling (DASR)",
+        "Verification of Competent Authority Approval",
+        "Summary of Information of Ship",
+        "Ship Recycling Facility Plan (SRFP)"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "Project Management Organogram",
+        "Ship Recycling Plan",
+        "DASR",
+        "Competent Authority Approval",
+        "SRFP"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_011",
+      "requirement": "Tentative landing location of the vessel’s position must be marked on the Layout plan.",
+      "regulation_source": "MEPC.210 (63) Guidelines for Safe and Environmentally Sound Ship Recycling, 2012",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Layout plan",
+        "Vessel position",
+        "Tentative landing location",
+        "Marking details",
+        "Compliance with MEPC.210(63)"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "tentative landing location",
+        "vessel position",
+        "layout plan",
+        "marking",
+        "MEPC.210(63)"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_012",
+      "requirement": "Qualification of Management Personnel Experience in same type of vessel dismantling must be verified.",
+      "regulation_source": "Bangladesh Ship Recycling Act 2018",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Management Personnel Qualification",
+        "Experience Verification",
+        "Vessel Type",
+        "Dismantling Procedures",
+        "Compliance Records"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "management personnel",
+        "experience verification",
+        "vessel dismantling",
+        "qualification",
+        "Bangladesh Ship Recycling Act"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_013",
+      "requirement": "Facility Equipment List including any special tools, equipment required for the specific vessel dismantling must be included.",
+      "regulation_source": "Bangladesh Ship Recycling Act 2018",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Facility Equipment List",
+        "Special Tools",
+        "Equipment Required",
+        "Vessel Dismantling Procedures",
+        "Compliance with Bangladesh Ship Recycling Act 2018"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "Facility Equipment List",
+        "Special Tools",
+        "Equipment Required",
+        "Vessel Dismantling",
+        "Bangladesh Ship Recycling Act 2018"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_014",
+      "requirement": "Personal Protective and Safety Equipment (PPE) including any special type of PPE requirement must be included.",
+      "regulation_source": "Bangladesh Ship Recycling Act 2018",
+      "category": "General",
+      "expected_fields": [
+        "PPE types",
+        "Special PPE requirements",
+        "Compliance with Bangladesh Ship Recycling Act 2018",
+        "Safety equipment list",
+        "PPE maintenance procedures"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "Personal Protective Equipment",
+        "Safety Equipment",
+        "PPE requirements",
+        "Bangladesh Ship Recycling Act",
+        "Special PPE"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_015",
+      "requirement": "Details of any previous recycling or major repairs must be documented.",
+      "regulation_source": "Bangladesh Ship Recycling Act 2018",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "previous_recycling_details",
+        "major_repairs_documentation",
+        "ship_name",
+        "IMO_number",
+        "date_of_recycling",
+        "repair_location",
+        "repair_date"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "previous recycling",
+        "major repairs",
+        "documentation",
+        "Bangladesh Ship Recycling Act 2018",
+        "ship history"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_016",
+      "requirement": "Information of International Certificate of IHM, Updated, approved Inventory of Hazardous Material (IHM) available with Part-I, II and III must be included.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "International Certificate of IHM",
+        "Updated IHM",
+        "Approved IHM",
+        "IHM Part I",
+        "IHM Part II",
+        "IHM Part III"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "International Certificate of IHM",
+        "Updated IHM",
+        "Approved IHM",
+        "IHM Part I",
+        "IHM Part II",
+        "IHM Part III"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_017",
+      "requirement": "Available HAZMATs Storage Facilities for the management of removable HAZMATs must be as per Inventory of Hazardous Material (IHM).",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Facility Information",
+      "expected_fields": [
+        "HAZMATs Storage Facilities",
+        "IHM Compliance",
+        "Management Procedures",
+        "Regulation Source",
+        "Storage Capacity",
+        "Safety Measures"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "HAZMATs Storage",
+        "IHM Compliance",
+        "Bangladesh Hazardous Waste",
+        "Ship-Breaking Waste Management",
+        "Storage Facilities",
+        "Management Procedures"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_018",
+      "requirement": "Facility’s capacity and capability to recycle the specific ship must be compared with the Ship Recycling Facility Plan (SRFP) and/or Document of Authorization to conduct Ship Recycling (DASR).",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Facility Capacity",
+        "Facility Capability",
+        "Ship Recycling Facility Plan (SRFP)",
+        "Document of Authorization to conduct Ship Recycling (DASR)",
+        "Comparison Report"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Facility Capacity",
+        "Facility Capability",
+        "SRFP",
+        "DASR",
+        "Comparison",
+        "Authorization"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_019",
+      "requirement": "Facility’s compliance with national and international regulations (HKC, MEPC.196(62)) must be verified and a copy of DASR must be attached.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Facility Compliance Verification",
+        "National Regulations Compliance",
+        "International Regulations Compliance",
+        "Copy of DASR",
+        "Approval from Competent Authority"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "compliance verification",
+        "HKC",
+        "MEPC.196(62)",
+        "DASR",
+        "Bangladesh Hazardous Waste"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_020",
+      "requirement": "Facility’s emergency response and pollution prevention measures must be included.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Facility Information",
+      "expected_fields": [
+        "emergency_response_plan",
+        "pollution_prevention_measures",
+        "facility_contact_information",
+        "emergency_contact_numbers",
+        "pollution_control_equipment",
+        "waste_management_procedures"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "emergency response",
+        "pollution prevention",
+        "waste management",
+        "facility procedures",
+        "emergency plan",
+        "pollution control"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_021",
+      "requirement": "Requirement of any ship specific emergency drill, safety equipment must be included in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "General",
+      "expected_fields": [
+        "emergency_drill_procedures",
+        "safety_equipment_list",
+        "SRP_inclusion",
+        "compliance_with_regulations",
+        "emergency_contact_information"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "emergency drill",
+        "safety equipment",
+        "SRP",
+        "Bangladesh regulations",
+        "ship recycling plan"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_022",
+      "requirement": "Approved Beaching Master must be selected and appointed.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Beaching Master Name",
+        "Approval Certificate",
+        "Appointment Date",
+        "Facility Name",
+        "Compliance Status"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Beaching Master",
+        "Approval",
+        "Appointment",
+        "Bangladesh",
+        "Ship-Breaking"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_023",
+      "requirement": "Planning for de-ballasting and sludge removal (if required) must be included in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "General",
+      "expected_fields": [
+        "De-ballasting Plan",
+        "Sludge Removal Plan",
+        "Ship Recycling Plan (SRP)",
+        "Ship-specific Information",
+        "Ship Recycling Facility Plan (SRFP)"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "de-ballasting",
+        "sludge removal",
+        "Ship Recycling Plan",
+        "SRP",
+        "Bangladesh Hazardous Waste"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_024",
+      "requirement": "Legal authorities to be contacted must be summarized in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Legal Authorities Contacted",
+        "Summary of Legal Requirements",
+        "Compliance Confirmation",
+        "Contact Information",
+        "Date of Contact"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "legal authorities",
+        "contact summary",
+        "Bangladesh Hazardous Waste",
+        "Ship-Breaking Waste Management",
+        "compliance"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_025",
+      "requirement": "Arrival stability data and stability during the demolition must be analyzed and recorded.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Ship Information",
+      "expected_fields": [
+        "Arrival Stability Data",
+        "Demolition Stability Data",
+        "Stability Analysis Report",
+        "Ship Recycling Plan",
+        "Verification of Stability Records"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "stability data",
+        "demolition stability",
+        "arrival stability",
+        "stability analysis",
+        "ship recycling plan"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_026",
+      "requirement": "Pre-arrival protocols i.e. Vessel acceptance, SRF application for the inspection by the authorities after arrival, HAZMATs management etc. must be included in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "General",
+      "expected_fields": [
+        "Vessel acceptance procedures",
+        "SRF application for inspection",
+        "Pre-arrival protocols",
+        "HAZMATs management",
+        "Ship Recycling Plan (SRP)",
+        "Competent Authority approval",
+        "Ship-specific information"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "pre-arrival protocols",
+        "vessel acceptance",
+        "SRF application",
+        "HAZMATs management",
+        "Ship Recycling Plan",
+        "inspection by authorities",
+        "Bangladesh Hazardous Waste"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_027",
+      "requirement": "A comprehensive ship-specific risk assessment must be conducted in terms of cargo, type, age, accident, facility constraints and other related elements and recorded in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "General",
+      "expected_fields": [
+        "ship_type",
+        "cargo_details",
+        "ship_age",
+        "accident_history",
+        "facility_constraints",
+        "risk_assessment_record"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "risk assessment",
+        "cargo type",
+        "ship age",
+        "accident",
+        "facility constraints",
+        "SRP"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_028",
+      "requirement": "Vessel securing arrangement after arrival must be included in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Facility Information",
+      "expected_fields": [
+        "Vessel securing arrangement",
+        "Arrival procedures",
+        "Ship Recycling Plan (SRP)",
+        "Ship-specific information",
+        "Verification of competent authority approval"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "vessel securing",
+        "arrival procedures",
+        "Ship Recycling Plan",
+        "SRP",
+        "competent authority approval"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_029",
+      "requirement": "On board Occupational Health and Safety procedures including Safety plan addressing risks and hazards specific to the ship and recycling process, training programs for workers on safety and hazardous materials handling, First aid and medical facilities, Procedures for fire protection and emergency evacuation must be included in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "General",
+      "expected_fields": [
+        "Occupational Health and Safety procedures",
+        "Safety plan",
+        "Training programs",
+        "First aid and medical facilities",
+        "Fire protection procedures",
+        "Emergency evacuation procedures"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "Occupational Health and Safety",
+        "Safety plan",
+        "Training programs",
+        "First aid",
+        "Fire protection",
+        "Emergency evacuation"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_030",
+      "requirement": "On board environmental protection measures including measures to prevent pollution of air, water, and soil, procedures for containment and treatment of spills and leaks, monitoring and reporting procedures for environmental impacts, waste management plan for hazardous and non-hazardous waste must be included in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "General",
+      "expected_fields": [
+        "Environmental protection measures",
+        "Pollution prevention procedures",
+        "Spill containment and treatment",
+        "Monitoring and reporting procedures",
+        "Waste management plan"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "environmental protection",
+        "pollution prevention",
+        "spill containment",
+        "waste management",
+        "monitoring procedures"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_031",
+      "requirement": "Safe access/exit arrangement during the full demolition process must be included in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "General",
+      "expected_fields": [
+        "Safe access arrangements",
+        "Exit routes",
+        "Demolition process plan",
+        "Safety procedures",
+        "Compliance with regulations"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "safe access",
+        "exit arrangement",
+        "demolition process",
+        "safety procedures",
+        "Bangladesh regulations"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_032",
+      "requirement": "HAZMAT management must be fully elaborated with reference to Inventory of Hazardous Material-IHM.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Hazardous Materials - Table A",
+      "expected_fields": [
+        "Material Name",
+        "Location on Ship",
+        "Quantity",
+        "Condition",
+        "Management Plan"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "HAZMAT management",
+        "Inventory of Hazardous Materials",
+        "IHM",
+        "Table A",
+        "prohibited materials"
+      ],
+      "severity": "critical"
+    },
+    {
+      "id": "REQ_033",
+      "requirement": "HAZMAT handling team details with certificate number, experience must be included.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Facility Information",
+      "expected_fields": [
+        "HAZMAT handling team details",
+        "certificate number",
+        "team experience",
+        "compliance with Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011"
+      ],
+      "check_type": "field_presence",
+      "search_keywords": [
+        "HAZMAT handling",
+        "certificate number",
+        "team experience",
+        "Bangladesh Hazardous Waste",
+        "Ship-Breaking Waste Management"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_034",
+      "requirement": "Documentation of hazardous material removal and disposal must be maintained.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Hazardous Material Removal Records",
+        "Disposal Records",
+        "Compliance Certificates",
+        "Waste Management Logs",
+        "Regulatory Approvals"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "hazardous material removal",
+        "disposal documentation",
+        "waste management",
+        "compliance records",
+        "Bangladesh regulations"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_035",
+      "requirement": "Measures to prevent accidental release of hazardous substances must be implemented.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Hazardous Materials - Table B",
+      "expected_fields": [
+        "Accidental Release Prevention Measures",
+        "Hazardous Substance List",
+        "Emergency Response Plan",
+        "Containment Procedures",
+        "Monitoring Protocols"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "accidental release",
+        "hazardous substances",
+        "prevention measures",
+        "containment",
+        "emergency response"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_036",
+      "requirement": "Safe for entry and safe for Hot work preparation, execution and maintenance must be included in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "General",
+      "expected_fields": [
+        "Safe-for-entry procedures",
+        "Safe-for-hot-work procedures",
+        "Execution plan",
+        "Maintenance plan",
+        "Compliance with SRP",
+        "Verification of procedures",
+        "Approval by competent authority"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "safe for entry",
+        "hot work",
+        "SRP compliance",
+        "execution",
+        "maintenance",
+        "procedures",
+        "verification"
+      ],
+      "severity": "medium"
+    },
+    {
+      "id": "REQ_037",
+      "requirement": "Competent person for safe entry and hot work execution must be included in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "General",
+      "expected_fields": [
+        "Competent Person Name",
+        "Certification Details",
+        "Safe Entry Procedures",
+        "Hot Work Procedures",
+        "Approval by Competent Authority"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "competent person",
+        "safe entry",
+        "hot work",
+        "SRP",
+        "Bangladesh Hazardous Waste"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_038",
+      "requirement": "Step-by-step description of the recycling process, including preparatory work (de-gassing, cleaning, removal of hazardous materials), dismantling sequence, handling and storage of materials, final disposal or recycling of components must be included in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "General",
+      "expected_fields": [
+        "recycling_process_description",
+        "preparatory_work_details",
+        "dismantling_sequence",
+        "handling_and_storage_procedures",
+        "final_disposal_methods"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "recycling process",
+        "preparatory work",
+        "dismantling sequence",
+        "hazardous materials removal",
+        "final disposal"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_039",
+      "requirement": "Timeline for demolition must be included in SRP.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Timeline for demolition",
+        "Ship Recycling Plan (SRP)",
+        "Approval from Competent Authority",
+        "Ship-specific information",
+        "Ship Recycling Facility Plan (SRFP)",
+        "Document of Authorization to conduct Ship Recycling (DASR)"
+      ],
+      "check_type": "procedural_compliance",
+      "search_keywords": [
+        "demolition timeline",
+        "Ship Recycling Plan",
+        "SRP",
+        "Competent Authority approval",
+        "SRFP",
+        "DASR"
+      ],
+      "severity": "high"
+    },
+    {
+      "id": "REQ_040",
+      "requirement": "Reporting after completion must be submitted to BSRB.",
+      "regulation_source": "Bangladesh Hazardous Waste and Ship-Breaking Waste Management Rules 2011",
+      "category": "Documentation & Maintenance",
+      "expected_fields": [
+        "Completion Report",
+        "Submission Date",
+        "BSRB Acknowledgment",
+        "Compliance Certificate",
+        "Waste Management Details"
+      ],
+      "check_type": "document_presence",
+      "search_keywords": [
+        "reporting",
+        "completion",
+        "BSRB",
+        "submission",
+        "Bangladesh"
+      ],
+      "severity": "high"
+    }
+  ]
+}

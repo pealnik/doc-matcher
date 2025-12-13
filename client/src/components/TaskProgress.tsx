@@ -44,6 +44,34 @@ export function TaskProgress({ task }: TaskProgressProps) {
     }
   };
 
+  const handleCancelTask = async () => {
+    if (!task.task_id) return;
+    try {
+      const API_BASE_URL =
+        import.meta.env.VITE_API_URL || "http://localhost:8000";
+      const response = await fetch(
+        `${API_BASE_URL}/tasks/${task.task_id}/cancel`,
+        {
+          method: "POST",
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || "Failed to cancel task");
+      }
+
+      alert(
+        `Cancellation requested for task ${task.task_id}. The status will update shortly.`
+      );
+      // The SSE stream will automatically update the task status in the UI
+    } catch (err: unknown) {
+      console.error("Error cancelling task:", err);
+      const message = err instanceof Error ? err.message : String(err);
+      alert(`Failed to cancel task: ${message}`);
+    }
+  };
+
   return (
     <Card>
       <CardHeader>
@@ -58,6 +86,16 @@ export function TaskProgress({ task }: TaskProgressProps) {
                   Download PDF
                 </Button>
               )}
+            {task.status === "processing" && (
+              <Button
+                onClick={handleCancelTask}
+                variant="destructive"
+                size="sm"
+              >
+                <XCircle className="h-4 w-4 mr-2" />
+                Stop Task
+              </Button>
+            )}
             <Badge
               variant={
                 task.status === "completed"
@@ -98,7 +136,9 @@ export function TaskProgress({ task }: TaskProgressProps) {
               <Card>
                 <CardContent className="pt-6">
                   <div className="text-2xl font-bold text-green-600">
-                    {task.result?.summary.total_compliant || 0}
+                    {task.result?.summary.total_compliant ??
+                      task.result?.summary.compliant ??
+                      0}
                   </div>
                   <div className="text-sm text-gray-600">Compliant</div>
                 </CardContent>
@@ -106,7 +146,9 @@ export function TaskProgress({ task }: TaskProgressProps) {
               <Card>
                 <CardContent className="pt-6">
                   <div className="text-2xl font-bold text-red-600">
-                    {task.result?.summary.total_non_compliant || 0}
+                    {task.result?.summary.total_non_compliant ??
+                      task.result?.summary.non_compliant ??
+                      0}
                   </div>
                   <div className="text-sm text-gray-600">Non-Compliant</div>
                 </CardContent>
@@ -114,7 +156,9 @@ export function TaskProgress({ task }: TaskProgressProps) {
               <Card>
                 <CardContent className="pt-6">
                   <div className="text-2xl font-bold text-orange-600">
-                    {task.result?.summary.total_partial || 0}
+                    {task.result?.summary.total_partial ??
+                      task.result?.summary.partially_compliant ??
+                      0}
                   </div>
                   <div className="text-sm text-gray-600">
                     Partially Compliant
@@ -124,7 +168,9 @@ export function TaskProgress({ task }: TaskProgressProps) {
               <Card>
                 <CardContent className="pt-6">
                   <div className="text-2xl font-bold">
-                    {task.result?.summary.total_rows || 0}
+                    {task.result?.summary.total_rows ??
+                      task.result?.summary.total ??
+                      0}
                   </div>
                   <div className="text-sm text-gray-600">Total Checks</div>
                 </CardContent>
